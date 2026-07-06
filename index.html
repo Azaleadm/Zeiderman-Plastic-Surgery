@@ -72,6 +72,8 @@
     content:"";
     width:26px;height:1px;background:var(--navy-soft);opacity:.55;
   }
+  .eyebrow--both::after{content:"";width:26px;height:1px;background:var(--navy-soft);opacity:.55}
+  .hero .eyebrow--both::after{background:#cdd7e8;opacity:.7}
 
   /* buttons */
   .btn{
@@ -144,6 +146,8 @@
     font-weight:500;color:var(--navy);
   }
   .nav-cta .btn{padding:12px 24px}
+  .nav-phone{font-size:14px;letter-spacing:.04em;color:var(--navy);font-weight:500}
+  .nav-phone:hover{color:var(--navy-2)}
   .hamburger{display:none;background:none;border:0;cursor:pointer;padding:6px}
   .hamburger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:.3s}
 
@@ -293,6 +297,7 @@
     padding:6px 10px;border-radius:3px;
   }
   .surgeon-copy h2{color:#fff;font-size:clamp(30px,3.4vw,44px);margin:16px 0 22px}
+  .doc-title{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:#aebbd1;margin:-14px 0 24px}
   .surgeon-copy p{color:#aebbd1;margin-bottom:16px}
   .cred-list{margin:26px 0 32px;border-top:1px solid rgba(255,255,255,.14)}
   .cred-list .cred{
@@ -456,22 +461,6 @@
 </head>
 <body>
 
-<!-- ============ UTILITY BAR ============ -->
-<div class="utility">
-  <div class="wrap">
-    <div class="u-left">
-      <a href="tel:7074483436">707.448.3436</a>
-      <span class="u-dot">·</span>
-      <span>Napa &amp; Vacaville</span>
-    </div>
-    <div class="u-right">
-      <a href="#locations">Locations</a>
-      <a href="https://www.instagram.com/drmatthewzeiderman" target="_blank" rel="noopener">Instagram</a>
-      <a href="#contact">Patient Portal</a>
-    </div>
-  </div>
-</div>
-
 <!-- ============ HEADER / NAV ============ -->
 <header>
   <div class="wrap nav">
@@ -480,15 +469,14 @@
       <span class="b-sub">Plastic Surgery</span>
     </a>
     <nav class="nav-links">
+      <a href="#surgeon">About</a>
       <a href="#procedures">Procedures</a>
-      <a href="#gallery">Before &amp; After</a>
-      <a href="#surgeon">Dr. Zeiderman</a>
-      <a href="#experience">The Practice</a>
+      <a href="#">Before &amp; After</a>
       <a href="#locations">Locations</a>
     </nav>
     <div class="nav-cta">
-      <a href="#gallery" class="link-gallery">Gallery</a>
-      <a href="#contact" class="btn btn-solid">Book Now</a>
+      <a href="tel:7074483436" class="nav-phone">707.448.3436</a>
+      <a href="#contact" class="btn btn-solid">Book Consultation</a>
       <button class="hamburger" id="openMenu" aria-label="Open menu">
         <span></span><span></span><span></span>
       </button>
@@ -506,14 +494,13 @@
     <button class="drawer-close" id="closeMenu" aria-label="Close menu">&times;</button>
   </div>
   <nav class="drawer-links">
+    <a href="#surgeon">About</a>
     <a href="#procedures">Procedures</a>
-    <a href="#gallery">Before &amp; After</a>
-    <a href="#surgeon">Dr. Zeiderman</a>
-    <a href="#experience">The Practice</a>
+    <a href="#">Before &amp; After</a>
     <a href="#locations">Locations</a>
   </nav>
   <div class="drawer-actions">
-    <a href="#contact" class="btn btn-solid-light">Book Now</a>
+    <a href="#contact" class="btn btn-solid-light">Book Consultation</a>
     <a href="tel:7074483436" class="btn btn-ghost-light">Call 707.448.3436</a>
   </div>
 </div>
@@ -526,13 +513,33 @@
   <span class="hero-tag">Sample imagery</span>
   <div class="hero-inner">
     <div class="wrap">
-      <span class="eyebrow">Napa &middot; Vacaville, California</span>
+      <span class="eyebrow eyebrow--both">Napa Valley Plastic Surgery</span>
       <h1>Look refreshed, <em>feel like yourself</em>.</h1>
       <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit voluptate velit esse cillum eu fugiat.</p>
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-solid-light">Book a Consultation</a>
-        <a href="#gallery" class="btn btn-ghost-light">View Before &amp; After</a>
+        <a href="#contact" class="btn btn-solid-light">Book Consultation</a>
+        <a href="#" class="btn btn-ghost-light">Before &amp; After</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SURGEON ============ -->
+<section class="block surgeon reveal" id="surgeon">
+  <div class="wrap">
+    <div class="surgeon-photo" data-ph="Dr. Matthew Zeiderman" data-img="https://images.pexels.com/photos/7108250/pexels-photo-7108250.jpeg?auto=compress&cs=tinysrgb&w=1400"><span class="pf-chip">Placeholder photo</span></div>
+    <div class="surgeon-copy">
+      <span class="eyebrow">Meet Dr. Zeiderman</span>
+      <h2>Dr. Matthew Zeiderman</h2>
+      <div class="doc-title">Fellowship-Trained Plastic Surgeon</div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+      <div class="cred-list">
+        <div class="cred"><span class="c-key">Training</span><span class="c-val">Fellowship-trained plastic surgeon</span></div>
+        <div class="cred"><span class="c-key">Focus</span><span class="c-val">Face, eyelids, and breast surgery</span></div>
+        <div class="cred"><span class="c-key">Philosophy</span><span class="c-val">Natural, tasteful, results-driven</span></div>
+      </div>
+      <a href="#" class="btn btn-solid-light">About the practice</a>
     </div>
   </div>
 </section>
@@ -615,87 +622,6 @@
   </div>
 </section>
 
-<!-- ============ SURGEON ============ -->
-<section class="block surgeon reveal" id="surgeon">
-  <div class="wrap">
-    <div class="surgeon-photo" data-ph="Dr. Matthew Zeiderman" data-img="https://images.pexels.com/photos/7108250/pexels-photo-7108250.jpeg?auto=compress&cs=tinysrgb&w=1400"><span class="pf-chip">Placeholder photo</span></div>
-    <div class="surgeon-copy">
-      <span class="eyebrow">Your surgeon</span>
-      <h2>Meet Dr. Matthew Zeiderman</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
-      <div class="cred-list">
-        <div class="cred"><span class="c-key">Training</span><span class="c-val">Fellowship-trained plastic surgeon</span></div>
-        <div class="cred"><span class="c-key">Focus</span><span class="c-val">Face, eyelids, and breast surgery</span></div>
-        <div class="cred"><span class="c-key">Philosophy</span><span class="c-val">Natural, tasteful, results-driven</span></div>
-      </div>
-      <a href="#" class="btn btn-solid-light">About the practice</a>
-    </div>
-  </div>
-</section>
-
-<!-- ============ BEFORE & AFTER (signature slider) ============ -->
-<section class="block ba reveal" id="gallery">
-  <div class="wrap">
-    <div class="ba-top">
-      <div>
-        <span class="eyebrow">The results speak</span>
-        <h2>Before &amp; after</h2>
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
-    </div>
-    <div class="ba-layout">
-      <div class="ba-slider" id="baSlider">
-        <div class="ba-img ba-before" data-ph=""></div>
-        <div class="ba-after" id="baAfter">
-          <div class="ba-after-inner" id="baAfterInner" data-ph=""></div>
-        </div>
-        <span class="ba-tag l">Before</span>
-        <span class="ba-tag r">After</span>
-        <div class="ba-handle" id="baHandle"></div>
-      </div>
-      <div class="ba-aside">
-        <h3>See the difference</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
-        <a href="#" class="btn btn-outline">Explore the full gallery</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ EXPERIENCE ============ -->
-<section class="block exp reveal" id="experience">
-  <div class="wrap">
-    <div class="section-head" style="max-width:560px">
-      <span class="eyebrow">The experience</span>
-      <h2>Boutique care, start to finish</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
-    </div>
-    <div class="exp-grid">
-      <div class="exp-item">
-        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-9.5-9C.8 8.5 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.2 4 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
-        <h3>Personal consultations</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-      </div>
-      <div class="exp-item">
-        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.4 6.9H22l-6 4.5 2.3 7L12 16.9 5.7 20.4 8 13.4l-6-4.5h7.6z"/></svg>
-        <h3>Natural, tasteful results</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-      </div>
-      <div class="exp-item">
-        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 7h-3V5a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM9 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9z"/></svg>
-        <h3>Concierge coordination</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-      </div>
-      <div class="exp-item">
-        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg>
-        <h3>Two convenient locations</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ TESTIMONIALS ============ -->
 <section class="block quotes reveal">
   <div class="wrap">
@@ -739,13 +665,12 @@
   </div>
 </section>
 
-<!-- ============ CTA BAND ============ -->
 <!-- ============ CONSULTATION FORM ============ -->
 <section class="consult reveal" id="contact">
   <div class="wrap consult-grid">
     <div class="consult-copy">
-      <span class="eyebrow">Begin your journey</span>
-      <h2>Request a <em>consultation</em></h2>
+      <span class="eyebrow">Get in touch</span>
+      <h2>Let's get <em>started</em></h2>
       <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       <div class="consult-detail">
         <div class="cd"><span class="cd-key">Call</span><span class="cd-val"><a href="tel:7074483436">707.448.3436</a></span></div>
@@ -843,10 +768,10 @@
       </div>
       <div class="foot-col">
         <h4>Practice</h4>
-        <a href="#surgeon">Dr. Zeiderman</a>
-        <a href="#gallery">Before &amp; After</a>
-        <a href="#experience">The Practice</a>
-        <a href="#contact">Book Now</a>
+        <a href="#surgeon">About Dr. Zeiderman</a>
+        <a href="#">Before &amp; After</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Book Consultation</a>
       </div>
       <div class="foot-col">
         <h4>Contact</h4>
@@ -964,6 +889,7 @@
 
   (function(){
     var slider=document.getElementById('baSlider');
+    if(!slider)return;
     var after=document.getElementById('baAfter');
     var inner=document.getElementById('baAfterInner');
     var handle=document.getElementById('baHandle');
