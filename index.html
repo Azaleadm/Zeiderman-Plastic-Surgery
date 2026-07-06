@@ -173,12 +173,15 @@
 
   /* ---------------- hero ---------------- */
   .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
-  /* --- B-ROLL: replace this .hero-media div with the <video> below --- */
+  /* --- B-ROLL/PHOTO: .hero-media takes the image; .hero-overlay darkens for text --- */
   .hero-media{
     position:absolute;inset:0;z-index:0;
-    background:
-      linear-gradient(180deg,rgba(11,20,38,.28) 0%,rgba(11,20,38,.05) 30%,rgba(11,20,38,.72) 100%),
-      linear-gradient(120deg,#25324a 0%,#3d4d68 45%,#5c6d8a 100%);
+    background:linear-gradient(120deg,#25324a 0%,#3d4d68 45%,#5c6d8a 100%);
+    background-size:cover;background-position:center 30%;
+  }
+  .hero-overlay{
+    position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(11,20,38,.42) 0%,rgba(11,20,38,.18) 34%,rgba(11,20,38,.84) 100%);
   }
   /*
   <video class="hero-media" autoplay muted loop playsinline poster="hero-poster.jpg">
@@ -201,7 +204,13 @@
     max-width:46ch;font-weight:300;margin-bottom:34px;
   }
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-  @media(max-width:600px){.hero{min-height:82vh}.hero-inner{padding-bottom:52px}}
+  .hero-tag{
+    position:absolute;top:22px;right:22px;z-index:2;
+    font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:#dfe6f2;background:rgba(11,20,38,.4);border:1px solid rgba(255,255,255,.18);
+    padding:7px 12px;border-radius:3px;backdrop-filter:blur(4px);
+  }
+  @media(max-width:600px){.hero{min-height:82vh}.hero-inner{padding-bottom:52px}.hero-tag{display:none}}
 
   /* ---------------- trust strip ---------------- */
   .trust{background:var(--navy);color:#e7ecf4}
@@ -241,17 +250,13 @@
   .proc-card:hover{background:#fbf9f5}
   .proc-thumb{
     aspect-ratio:16/11;width:100%;
-    background:linear-gradient(135deg,#dbe1eb 0%,#c3ccdb 55%,#b3bdd0 100%);
+    background:linear-gradient(135deg,#33496e,#1d2c46);
+    background-size:cover;background-position:center;
     position:relative;overflow:hidden;
-  }
-  .proc-thumb::before{
-    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-    width:44px;height:44px;opacity:.5;
-    background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316243f' stroke-width='1.3'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.6'/%3E%3Cpath d='M21 15l-5-5L5 21'/%3E%3C/svg%3E");
   }
   .proc-thumb::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 55%,rgba(22,36,63,.18));
+    background:linear-gradient(180deg,transparent 62%,rgba(11,20,38,.28));
   }
   .proc-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
   .proc-body h3{font-size:23px;margin-bottom:10px}
@@ -277,8 +282,15 @@
     position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);
   }
   .surgeon-photo::after{
-    content:"Portrait";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    content:"";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
     font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);
+  }
+  .surgeon-photo{background-size:cover;background-position:center}
+  .pf-chip{
+    position:absolute;top:14px;left:14px;z-index:2;
+    font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    color:#eaeef5;background:rgba(11,20,38,.55);border:1px solid rgba(255,255,255,.2);
+    padding:6px 10px;border-radius:3px;
   }
   .surgeon-copy h2{color:#fff;font-size:clamp(30px,3.4vw,44px);margin:16px 0 22px}
   .surgeon-copy p{color:#aebbd1;margin-bottom:16px}
@@ -509,7 +521,9 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <!-- Swap this div for the <video> markup in the CSS comment when B-roll is ready -->
-  <div class="hero-media"></div>
+  <div class="hero-media" data-img="https://images.pexels.com/photos/30747230/pexels-photo-30747230.jpeg?auto=compress&cs=tinysrgb&w=1600"></div>
+  <div class="hero-overlay"></div>
+  <span class="hero-tag">Sample imagery</span>
   <div class="hero-inner">
     <div class="wrap">
       <span class="eyebrow">Napa &middot; Vacaville, California</span>
@@ -547,7 +561,7 @@
     <div class="proc-grid">
       <!-- ordered per intake priority -->
       <a class="proc-card" href="#">
-        <div class="proc-thumb"></div>
+        <div class="proc-thumb" data-ph="Face &amp; Neck Lift" data-img="https://images.pexels.com/photos/19284976/pexels-photo-19284976.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Face &amp; Neck Lift</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -555,7 +569,7 @@
         </div>
       </a>
       <a class="proc-card" href="#">
-        <div class="proc-thumb"></div>
+        <div class="proc-thumb" data-ph="Eyelid Surgery" data-img="https://images.pexels.com/photos/9535387/pexels-photo-9535387.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Eyelid Surgery</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -563,7 +577,7 @@
         </div>
       </a>
       <a class="proc-card" href="#">
-        <div class="proc-thumb"></div>
+        <div class="proc-thumb" data-ph="Breast Augmentation" data-img="https://images.pexels.com/photos/12576862/pexels-photo-12576862.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Breast Augmentation</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -571,7 +585,7 @@
         </div>
       </a>
       <a class="proc-card" href="#">
-        <div class="proc-thumb"></div>
+        <div class="proc-thumb" data-ph="Breast Lift" data-img="https://images.pexels.com/photos/15079473/pexels-photo-15079473.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Breast Lift</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -579,7 +593,7 @@
         </div>
       </a>
       <a class="proc-card" href="#">
-        <div class="proc-thumb"></div>
+        <div class="proc-thumb" data-ph="Mommy Makeover" data-img="https://images.pexels.com/photos/30253433/pexels-photo-30253433.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Mommy Makeover</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -587,7 +601,7 @@
         </div>
       </a>
       <a class="proc-card" href="#">
-        <div class="proc-thumb"></div>
+        <div class="proc-thumb" data-ph="Abdominoplasty" data-img="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Abdominoplasty</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -604,7 +618,7 @@
 <!-- ============ SURGEON ============ -->
 <section class="block surgeon reveal" id="surgeon">
   <div class="wrap">
-    <div class="surgeon-photo"></div>
+    <div class="surgeon-photo" data-ph="Dr. Matthew Zeiderman" data-img="https://images.pexels.com/photos/7108250/pexels-photo-7108250.jpeg?auto=compress&cs=tinysrgb&w=1400"><span class="pf-chip">Placeholder photo</span></div>
     <div class="surgeon-copy">
       <span class="eyebrow">Your surgeon</span>
       <h2>Meet Dr. Matthew Zeiderman</h2>
@@ -632,9 +646,9 @@
     </div>
     <div class="ba-layout">
       <div class="ba-slider" id="baSlider">
-        <div class="ba-img ba-before">Before</div>
+        <div class="ba-img ba-before" data-ph=""></div>
         <div class="ba-after" id="baAfter">
-          <div class="ba-after-inner" id="baAfterInner">After</div>
+          <div class="ba-after-inner" id="baAfterInner" data-ph=""></div>
         </div>
         <span class="ba-tag l">Before</span>
         <span class="ba-tag r">After</span>
@@ -844,7 +858,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 Zeiderman Plastic Surgery. All rights reserved.</span>
-      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Accessibility</a></span>
+      <span>Photography shown is temporary placeholder imagery &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Accessibility</a></span>
     </div>
   </div>
 </footer>
@@ -880,6 +894,72 @@
       success.classList.add('show');
       success.scrollIntoView({behavior:'smooth',block:'center'});
     });
+  })();
+
+  // placeholder imagery: paints on-brand SVG "photo" plates into any [data-ph]
+  // element. Swap for a real photo later by removing data-ph and setting the
+  // element's background-image (or replacing it with an <img>).
+  (function(){
+    function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+    function plate(label,w,h){
+      var W=Math.max(2,Math.round(w)),H=Math.max(2,Math.round(h));
+      var cx=W/2, cy=H/2, hasLabel=label&&label.length;
+      var iconY=hasLabel?cy-30:cy-12;
+      var svg=
+        "<svg xmlns='http://www.w3.org/2000/svg' width='"+W+"' height='"+H+"' viewBox='0 0 "+W+" "+H+"'>"+
+        "<defs>"+
+          "<linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>"+
+            "<stop offset='0' stop-color='#34496d'/><stop offset='1' stop-color='#1c2b46'/>"+
+          "</linearGradient>"+
+          "<radialGradient id='r' cx='0.5' cy='0.34' r='0.75'>"+
+            "<stop offset='0' stop-color='#ffffff' stop-opacity='0.12'/>"+
+            "<stop offset='1' stop-color='#ffffff' stop-opacity='0'/>"+
+          "</radialGradient>"+
+        "</defs>"+
+        "<rect width='100%' height='100%' fill='url(#g)'/>"+
+        "<rect width='100%' height='100%' fill='url(#r)'/>"+
+        "<g fill='none' stroke='#eef1f6' stroke-opacity='0.55' stroke-width='1.5' "+
+          "transform='translate("+(cx-16)+","+iconY+")'>"+
+          "<rect x='0' y='0' width='32' height='25' rx='2.5'/>"+
+          "<circle cx='8' cy='8' r='2.6'/>"+
+          "<path d='M32 18 L21 8 L4 25'/>"+
+        "</g>"+
+        (hasLabel?
+          "<text x='"+cx+"' y='"+(cy+16)+"' fill='#eef1f6' fill-opacity='0.92' "+
+          "font-family='Helvetica,Arial,sans-serif' font-size='13' letter-spacing='2.5' "+
+          "text-anchor='middle'>"+esc(label.toUpperCase())+"</text>":"")+
+        "</svg>";
+      return "data:image/svg+xml,"+encodeURIComponent(svg);
+    }
+    function paint(){
+      document.querySelectorAll('[data-ph]').forEach(function(el){
+        if(el.dataset.imgLoaded)return; // real photo already in place
+        var r=el.getBoundingClientRect();
+        if(r.width<2||r.height<2)return;
+        el.style.backgroundImage="url(\""+plate(el.getAttribute('data-ph'),r.width,r.height)+"\")";
+        el.style.backgroundSize="cover";
+        el.style.backgroundPosition="center";
+      });
+    }
+    // load real photos over the placeholder; if one fails, the placeholder stays
+    function loadReal(){
+      document.querySelectorAll('[data-img]').forEach(function(el){
+        var src=el.getAttribute('data-img');
+        if(!src||el.dataset.imgLoaded)return;
+        var img=new Image();
+        img.onload=function(){
+          el.dataset.imgLoaded="1";
+          el.style.backgroundImage="url(\""+src+"\")";
+          el.style.backgroundSize="cover";
+          if(!el.classList.contains('hero-media'))el.style.backgroundPosition="center";
+        };
+        img.src=src;
+      });
+    }
+    var t;
+    window.addEventListener('load',function(){paint();loadReal();});
+    window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(paint,180);});
+    paint();loadReal();
   })();
 
   (function(){
