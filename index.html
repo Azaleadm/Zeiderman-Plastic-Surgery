@@ -1,1061 +1,914 @@
+<!-- ============================================================
+     ZEIDERMAN PLASTIC SURGERY  |  Homepage
+     Dr. Matthew Zeiderman
+     Light theme  |  Navy + warm off-white  |  Editorial / boutique
+     Body copy is placeholder lorem ipsum. Headings, labels,
+     and practice info are real. Swap the hero background div
+     for a <video> tag (markup included, commented) when B-roll
+     is ready.
+     ============================================================ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zeiderman Plastic Surgery - Digital Marketing Proposal</title>
-<link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+<title>Zeiderman Plastic Surgery | Dr. Matthew Zeiderman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg:        #1e2229;
-  --bg-mid:    #252b34;
-  --bg-card:   #2c333e;
-  --bg-hi:     #333c48;
-  --text:      #eef0f4;
-  --muted:     rgba(238,240,244,0.55);
-  --faint:     rgba(238,240,244,0.28);
-  --whisper:   rgba(238,240,244,0.06);
-  --gold:      #b8965a;
-  --gold-lt:   #d4b07a;
-  --gold-dk:   #8a6e3e;
-  --gold-pale: rgba(184,150,90,0.12);
-  --steel:     #4a6fa8;
-  --teal:      #2a8a7a;
-  --amber:     #c47c2a;
-  --red:       #a03838;
-  --border:    rgba(238,240,244,0.1);
-  --border2:   rgba(238,240,244,0.06);
-  --bgold:     rgba(184,150,90,0.28);
-  --pad:       60px;
-}
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Barlow', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.7;
-}
+  :root{
+    --navy:#16243f;
+    --navy-2:#22375c;
+    --navy-soft:#3a557f;
+    --ink:#1b2333;
+    --muted:#5b6577;
+    --bg:#ffffff;
+    --bg-alt:#f7f4ee;      /* warm off-white */
+    --stone:#e9e3d8;       /* warm neutral */
+    --line:#e6e2da;        /* hairline */
+    --white:#ffffff;
+    --radius:4px;
+    --maxw:1240px;
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 768px) {
-  :root { --pad: 22px; }
-  .cover { padding: 22px; min-height: auto; padding-bottom: 40px; gap: 36px; }
-  .cover-top { flex-direction: column; gap: 14px; }
-  .cover-stats { flex-direction: column; }
-  .cstat { border-right: none !important; border-bottom: 1px solid var(--border); }
-  .cstat:last-child { border-bottom: none; }
-  .cover-bottom { flex-direction: column; gap: 8px; text-align: center; }
-  .doc { padding: 0 22px 80px; }
-  .sec-hd { flex-direction: column; align-items: flex-start; gap: 12px; }
-  .sec-tag { align-self: flex-start; }
-  .grid-2 { grid-template-columns: 1fr !important; }
-  .grid-3 { grid-template-columns: 1fr !important; }
-  .grid-4 { grid-template-columns: 1fr 1fr !important; }
-  .timeline { grid-template-columns: 1fr !important; }
-  .plan-grid { grid-template-columns: 1fr !important; }
-  .deliverable-grid { grid-template-columns: 1fr !important; }
-  .deliverable-grid-3 { grid-template-columns: 1fr !important; }
-  .setup-tier-header { grid-template-columns: 1fr !important; }
-  .setup-price { text-align: left !important; margin-top: 12px; }
-  .compare th, .compare td { padding: 10px 10px; font-size: 13px; }
-  .quote-block { padding: 28px 22px; }
-  .callout { flex-direction: column; gap: 12px; padding: 20px 18px; }
-  .callout-bar { width: auto; height: 3px; align-self: auto; min-height: auto; }
-  .val-grid { grid-template-columns: 1fr !important; }
-  .sum-row { grid-template-columns: 1fr !important; }
-  .sum-row.hdr { display: none; }
-  .sum-num, .sum-timing { padding: 8px 22px !important; }
-  .roi-grid { grid-template-columns: 1fr 1fr !important; }
-  .doc-footer { flex-direction: column; gap: 6px; padding: 20px 22px; text-align: center; }
-  .cover-h1 { font-size: clamp(40px, 10vw, 80px) !important; }
-  .sec-num { font-size: 56px !important; }
-  .two-col-info { grid-template-columns: 1fr !important; }
-  .gallery-nums { grid-template-columns: repeat(3, 1fr) !important; }
-}
-@media (max-width: 480px) {
-  .grid-4 { grid-template-columns: 1fr !important; }
-  .roi-grid { grid-template-columns: 1fr !important; }
-  .gallery-nums { grid-template-columns: 1fr 1fr !important; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.65;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
 
-  .sum-table { overflow-x: auto; }
-  .sum-row { grid-template-columns: 1fr !important; }
-  .sum-total-big, .sum-total-note { padding: 12px 16px !important; }
-  .setup-tier-header { flex-direction: column; }
-  .tier-table-wrap { overflow-x: auto; }
-}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
 
+  h1,h2,h3,h4{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:400;
+    color:var(--navy);
+    line-height:1.12;
+    letter-spacing:-.01em;
+  }
 
-/* ── COVER ── */
-.cover {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: var(--pad);
-  border-bottom: 1px solid var(--border);
-  position: relative;
-  overflow: hidden;
-  gap: 48px;
-}
-.cover-accent-bar {
-  position:absolute; top:0; left:0; right:0; height:4px;
-  background: linear-gradient(90deg, var(--gold-dk) 0%, var(--gold) 55%, rgba(212,176,122,0.3) 100%);
-}
-.cover::before {
-  content:''; position:absolute; top:-160px; right:-160px;
-  width:520px; height:520px; border-radius:50%;
-  border:1px solid rgba(184,150,90,0.09); pointer-events:none;
-}
-.cover::after {
-  content:''; position:absolute; top:-280px; right:-280px;
-  width:800px; height:800px; border-radius:50%;
-  border:1px solid rgba(184,150,90,0.04); pointer-events:none;
-}
-.cover-top { display:flex; justify-content:space-between; align-items:flex-start; position:relative; z-index:2; }
-.cover-logo-name { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:var(--text); letter-spacing:0.1em; text-transform:uppercase; display:block; }
-.cover-logo-sub  { font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); margin-top:5px; display:block; font-weight:500; }
-.cover-badge { background:var(--whisper); border:1px solid var(--border); padding:9px 20px; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); font-weight:500; }
-.cover-main { position:relative; z-index:2; }
-.cover-eyebrow { font-size:13px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:24px; display:flex; align-items:center; gap:16px; font-weight:600; }
-.cover-eyebrow::before { content:''; width:44px; height:2px; background:var(--gold); flex-shrink:0; }
-.cover-h1 { font-family:'Barlow Condensed',sans-serif; font-size:clamp(52px,7vw,94px); font-weight:800; line-height:0.96; color:var(--text); margin-bottom:24px; text-transform:uppercase; letter-spacing:0.01em; }
-.cover-h1 em { display:block; font-style:italic; font-family:'Barlow',sans-serif; font-weight:300; font-size:0.52em; color:var(--gold-lt); text-transform:none; letter-spacing:0.02em; line-height:1.4; margin-top:6px; }
-.cover-sub { font-size:17px; color:var(--muted); line-height:1.78; max-width:580px; margin-bottom:52px; font-weight:300; }
-.cover-sub strong { color:var(--text); font-weight:500; }
-.cover-stats { display:flex; flex-wrap:wrap; border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.cstat { flex:1; min-width:120px; padding:20px 22px; border-right:1px solid var(--border); }
-.cstat:last-child { border-right:none; }
-.cstat-num { font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:var(--gold-lt); display:block; line-height:1; margin-bottom:6px; letter-spacing:0.02em; }
-.cstat-lbl { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--faint); font-weight:500; }
-.cover-bottom { display:flex; justify-content:space-between; align-items:flex-end; font-size:13px; color:var(--faint); letter-spacing:0.05em; position:relative; z-index:2; }
+  /* eyebrow label */
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--navy-soft);
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px;height:1px;background:var(--navy-soft);opacity:.55;
+  }
 
-/* ── MAIN WRAPPER ── */
-.doc { max-width:980px; margin:0 auto; padding:0 var(--pad) 120px; }
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:500;
+    letter-spacing:.09em;text-transform:uppercase;
+    padding:15px 30px;border-radius:var(--radius);
+    border:1px solid transparent;cursor:pointer;
+    transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease),transform .3s var(--ease);
+  }
+  .btn-solid{background:var(--navy);color:#fff}
+  .btn-solid:hover{background:var(--navy-2);transform:translateY(-1px)}
+  .btn-outline{background:transparent;color:var(--navy);border-color:var(--navy)}
+  .btn-outline:hover{background:var(--navy);color:#fff}
+  .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+  .btn-ghost-light:hover{background:#fff;color:var(--navy);border-color:#fff}
+  .btn-solid-light{background:#fff;color:var(--navy)}
+  .btn-solid-light:hover{background:var(--stone)}
 
-/* ── SECTIONS ── */
-.sec { padding-top:72px; border-top:1px solid var(--border2); margin-top:72px; }
-.sec:first-child { border-top:none; margin-top:0; }
-.sec-hd { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:36px; gap:24px; }
-.sec-num { font-family:'Barlow Condensed',sans-serif; font-size:80px; font-weight:800; color:var(--gold); opacity:0.1; line-height:1; display:block; margin-bottom:-12px; letter-spacing:-0.02em; }
-.sec-eye { font-size:12px; letter-spacing:0.24em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px; font-weight:600; }
-.sec-title { font-family:'Barlow Condensed',sans-serif; font-size:clamp(28px,3.4vw,48px); font-weight:700; color:var(--text); line-height:1.06; text-transform:uppercase; letter-spacing:0.02em; }
-.sec-title em { font-style:italic; color:var(--gold-lt); text-transform:none; font-family:'Barlow',sans-serif; font-weight:400; font-size:0.78em; display:block; letter-spacing:0.01em; margin-top:2px; }
-.sec-tag { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; background:var(--gold-pale); border:1px solid var(--bgold); color:var(--gold-lt); padding:7px 16px; white-space:nowrap; align-self:flex-start; flex-shrink:0; font-weight:600; }
+  /* ---------------- utility top bar ---------------- */
+  .utility{
+    background:var(--navy);color:#dfe4ee;
+    font-size:12.5px;letter-spacing:.02em;
+  }
+  .utility .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:40px;
+  }
+  .utility a{color:#dfe4ee;transition:color .25s}
+  .utility a:hover{color:#fff}
+  .utility .u-left{display:flex;gap:26px;align-items:center}
+  .utility .u-right{display:flex;gap:22px;align-items:center}
+  .utility .u-dot{opacity:.4}
+  @media(max-width:860px){
+    .utility .u-left span:nth-child(3),
+    .utility .u-left .u-dot{display:none}
+  }
 
-/* ── CARDS ── */
-.grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin:16px 0; }
-.grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px; margin:16px 0; }
-.grid-4 { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin:16px 0; }
-.card { background:var(--bg-mid); border:1px solid var(--border2); padding:26px 22px; position:relative; }
-.card-accent { position:absolute; top:0; left:0; right:0; height:3px; background:var(--gold); }
-.card-accent.teal  { background:var(--teal); }
-.card-accent.steel { background:var(--steel); }
-.card-accent.amber { background:var(--amber); }
-.card-accent.red   { background:var(--red); }
-.card-label { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px; display:block; font-weight:600; }
-.card-label.teal  { color:#3dbfaa; }
-.card-label.steel { color:#7da0cc; }
-.card-heading { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:var(--text); margin-bottom:12px; line-height:1.15; text-transform:uppercase; letter-spacing:0.02em; }
-.card-body { font-size:15px; color:var(--muted); line-height:1.78; font-weight:300; }
-.card-body strong { color:var(--text); font-weight:500; }
+  /* ---------------- header / nav ---------------- */
+  header{
+    position:sticky;top:0;z-index:60;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{line-height:1.05}
+  .brand .b-name{
+    font-family:'Fraunces',serif;font-size:20px;color:var(--navy);
+    letter-spacing:.01em;display:block;
+  }
+  .brand .b-sub{
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--navy-soft);font-weight:500;
+  }
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{
+    font-size:13.5px;letter-spacing:.03em;color:var(--ink);
+    position:relative;padding:4px 0;transition:color .25s;
+  }
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:-2px;width:0;height:1px;
+    background:var(--navy);transition:width .3s var(--ease);
+  }
+  .nav-links a:hover{color:var(--navy)}
+  .nav-links a:hover::after{width:100%}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .nav-cta .link-gallery{
+    font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+    font-weight:500;color:var(--navy);
+  }
+  .nav-cta .btn{padding:12px 24px}
+  .hamburger{display:none;background:none;border:0;cursor:pointer;padding:6px}
+  .hamburger span{display:block;width:24px;height:2px;background:var(--navy);margin:5px 0;transition:.3s}
 
-/* ── CALLOUT ── */
-.callout { border:1px solid var(--border); background:rgba(238,240,244,0.02); padding:26px 30px; margin:18px 0; display:flex; gap:20px; align-items:flex-start; }
-.callout-bar { width:3px; background:var(--gold); flex-shrink:0; align-self:stretch; min-height:20px; }
-.callout-bar.teal  { background:var(--teal); }
-.callout-bar.red   { background:var(--red); }
-.callout-bar.amber { background:var(--amber); }
-.callout-inner { flex:1; }
-.callout-label { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:10px; font-weight:600; }
-.callout-label.teal  { color:#3dbfaa; }
-.callout-label.red   { color:#d06060; }
-.callout-label.amber { color:#d9963a; }
-.callout p { font-size:16px; color:var(--muted); line-height:1.82; font-weight:300; }
-.callout p strong { color:var(--text); font-weight:500; }
+  @media(max-width:1040px){
+    .nav-links{display:none}
+    .nav-cta .link-gallery{display:none}
+    .hamburger{display:block}
+  }
 
-/* ── QUOTE ── */
-.quote-block { padding:48px 52px; border:1px solid var(--border); background:var(--bg-mid); margin:24px 0; position:relative; overflow:hidden; }
-.quote-block::before { content:'\201C'; position:absolute; top:-16px; left:28px; font-family:'Barlow Condensed',sans-serif; font-size:160px; font-weight:800; color:var(--gold); opacity:0.06; line-height:1; pointer-events:none; }
-.quote-text { font-family:'Barlow Condensed',sans-serif; font-size:clamp(22px,2.8vw,36px); font-weight:600; color:var(--text); line-height:1.28; margin-bottom:20px; position:relative; text-transform:uppercase; letter-spacing:0.01em; }
-.quote-text em { color:var(--gold-lt); text-transform:none; font-family:'Barlow',sans-serif; font-weight:400; font-style:italic; font-size:0.8em; }
-.quote-source { font-size:12px; letter-spacing:0.2em; text-transform:uppercase; color:var(--faint); font-weight:500; }
+  /* mobile drawer */
+  .drawer{
+    position:fixed;inset:0;z-index:70;background:var(--navy);
+    transform:translateY(-100%);transition:transform .5s var(--ease);
+    display:flex;flex-direction:column;padding:28px 32px;
+  }
+  .drawer.open{transform:translateY(0)}
+  .drawer-top{display:flex;justify-content:space-between;align-items:center}
+  .drawer-top .b-name{color:#fff}
+  .drawer-top .b-sub{color:#9fb0cc}
+  .drawer-close{background:none;border:0;color:#fff;font-size:30px;cursor:pointer;line-height:1}
+  .drawer-links{margin-top:48px;display:flex;flex-direction:column;gap:6px}
+  .drawer-links a{
+    font-family:'Fraunces',serif;font-size:30px;color:#fff;
+    padding:12px 0;border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .drawer-actions{margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-top:24px}
 
-/* ── COMPARE TABLE ── */
-.compare { width:100%; border-collapse:collapse; margin:14px 0 24px; }
-.compare th { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; padding:13px 16px; text-align:left; border-bottom:1px solid var(--border); font-weight:600; }
-.compare th.us   { color:var(--gold-lt); }
-.compare th.them { color:var(--faint); }
-.compare td { padding:14px 16px; border-bottom:1px solid var(--border2); font-size:14px; vertical-align:top; line-height:1.6; font-weight:300; }
-.compare tr:hover td { background:rgba(184,150,90,0.03); }
-.attr { color:var(--muted); font-size:12px; font-weight:500; letter-spacing:0.04em; }
-.us-td   { color:var(--text); }
-.them-td { color:rgba(238,240,244,0.22); }
-.check { color:var(--teal); margin-right:6px; font-size:13px; }
-.cross { color:var(--red); margin-right:6px; font-size:13px; opacity:0.7; }
+  /* ---------------- hero ---------------- */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden}
+  /* --- B-ROLL: replace this .hero-media div with the <video> below --- */
+  .hero-media{
+    position:absolute;inset:0;z-index:0;
+    background:
+      linear-gradient(180deg,rgba(11,20,38,.28) 0%,rgba(11,20,38,.05) 30%,rgba(11,20,38,.72) 100%),
+      linear-gradient(120deg,#25324a 0%,#3d4d68 45%,#5c6d8a 100%);
+  }
+  /*
+  <video class="hero-media" autoplay muted loop playsinline poster="hero-poster.jpg">
+    <source src="hero-broll.mp4" type="video/mp4">
+  </video>
+  <div class="hero-media" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,38,.25),rgba(11,20,38,.7));z-index:1"></div>
+  */
+  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:76px}
+  .hero .eyebrow{color:#cdd7e8}
+  .hero .eyebrow::before{background:#cdd7e8;opacity:.7}
+  .hero h1{
+    color:#fff;font-weight:300;
+    font-size:clamp(40px,5.6vw,78px);
+    max-width:16ch;margin:22px 0 20px;
+    letter-spacing:-.015em;
+  }
+  .hero h1 em{font-style:italic;font-weight:400}
+  .hero p.lede{
+    color:#e5eaf3;font-size:clamp(16px,1.5vw,19px);
+    max-width:46ch;font-weight:300;margin-bottom:34px;
+  }
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:600px){.hero{min-height:82vh}.hero-inner{padding-bottom:52px}}
 
-/* ── SETUP BLOCK ── */
-.setup-tier { border:1px solid var(--border); overflow:hidden; margin-bottom:4px; }
-.setup-tier-header { background:var(--bg-card); padding:30px 34px; display:grid; grid-template-columns:1fr auto; gap:32px; align-items:center; border-bottom:1px solid var(--border); }
-.setup-badge { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:8px; display:block; font-weight:600; }
-.setup-name { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:var(--text); text-transform:uppercase; letter-spacing:0.04em; line-height:1.1; margin-bottom:8px; }
-.setup-desc { font-size:14px; color:var(--muted); font-weight:300; }
-.setup-price { text-align:right; }
-.setup-price-num { font-family:'Barlow Condensed',sans-serif; font-size:54px; font-weight:800; color:var(--gold-lt); display:block; line-height:1; }
-.setup-price-lbl { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); display:block; margin-top:5px; font-weight:500; }
-.setup-body { padding:32px 34px; background:var(--bg-mid); }
-.setup-section-title { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:14px; margin-top:28px; font-weight:600; }
-.setup-section-title:first-child { margin-top:0; }
+  /* ---------------- trust strip ---------------- */
+  .trust{background:var(--navy);color:#e7ecf4}
+  .trust .wrap{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    gap:0;padding:44px 32px;
+  }
+  .trust-item{padding:0 30px;border-left:1px solid rgba(255,255,255,.12)}
+  .trust-item:first-child{border-left:0;padding-left:0}
+  .trust-item .t-num{font-family:'Fraunces',serif;font-size:40px;color:#fff;font-weight:300;line-height:1}
+  .trust-item .t-lab{font-size:12.5px;letter-spacing:.06em;color:#a9b6cd;margin-top:8px}
+  @media(max-width:820px){
+    .trust .wrap{grid-template-columns:repeat(2,1fr);gap:32px 0}
+    .trust-item{padding:0 24px}
+    .trust-item:nth-child(odd){border-left:0;padding-left:0}
+  }
 
-/* ── DELIVERABLES ── */
-.deliverable-grid   { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:4px; }
-.deliverable-grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin-bottom:4px; }
-.deliverable { background:var(--whisper); border:1px solid var(--border2); padding:12px 14px; display:flex; align-items:flex-start; gap:10px; }
-.deliverable-check { color:var(--teal); font-size:12px; flex-shrink:0; margin-top:3px; font-weight:600; }
-.deliverable-text { font-size:13px; color:var(--muted); line-height:1.5; font-weight:300; }
-.deliverable-text strong { color:var(--text); font-weight:500; display:block; margin-bottom:2px; font-size:13px; }
+  /* ---------------- generic section ---------------- */
+  section.block{padding:110px 0}
+  .section-head{max-width:640px}
+  .section-head h2{font-size:clamp(30px,3.6vw,46px);margin:18px 0 0}
+  .section-head p{color:var(--muted);margin-top:18px;font-size:17px}
 
-/* ── PRICING PLANS ── */
-.plan-grid { display:grid; grid-template-columns:1fr 1fr; gap:3px; margin:18px 0; }
-.plan-card { background:var(--bg-mid); border:1px solid var(--border); overflow:hidden; }
-.plan-card.featured { border-color:var(--gold); }
-.plan-top { background:var(--bg-card); padding:28px 26px; border-bottom:1px solid var(--border); position:relative; }
-.plan-card.featured .plan-top { background:rgba(184,150,90,0.08); border-bottom-color:rgba(184,150,90,0.25); }
-.plan-flag { position:absolute; top:18px; right:18px; background:var(--gold); color:#1e2229; font-size:9px; letter-spacing:0.18em; text-transform:uppercase; font-weight:700; padding:4px 10px; }
-.plan-badge { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:8px; display:block; font-weight:600; }
-.plan-name { font-family:'Barlow Condensed',sans-serif; font-size:30px; font-weight:800; color:var(--text); text-transform:uppercase; letter-spacing:0.04em; line-height:1; margin-bottom:6px; }
-.plan-period { font-size:13px; color:var(--muted); font-weight:400; margin-bottom:16px; letter-spacing:0.04em; }
-.plan-price-row { display:flex; align-items:flex-end; gap:6px; }
-.plan-price { font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:var(--gold-lt); line-height:1; letter-spacing:-0.01em; }
-.plan-price-lbl { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--faint); font-weight:500; margin-bottom:8px; }
-.plan-then { font-size:13px; color:var(--muted); margin-top:10px; font-weight:300; }
-.plan-then strong { color:var(--gold-lt); font-weight:600; }
-.plan-body { padding:24px 26px; }
-.plan-section-title { font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:12px; margin-top:20px; font-weight:600; }
-.plan-section-title:first-child { margin-top:0; }
-.plan-item { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid var(--border2); }
-.plan-item:last-child { border-bottom:none; }
-.plan-check { color:var(--teal); font-size:12px; flex-shrink:0; margin-top:3px; font-weight:600; }
-.plan-text { font-size:13px; color:var(--muted); line-height:1.5; font-weight:300; }
-.plan-text strong { color:var(--text); font-weight:500; display:block; margin-bottom:1px; font-size:13px; }
+  /* ---------------- procedures ---------------- */
+  .proc{background:var(--bg-alt)}
+  .proc-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+  .proc-grid{
+    margin-top:52px;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  }
+  .proc-card{
+    background:var(--white);padding:0;position:relative;
+    display:flex;flex-direction:column;
+    transition:background .3s var(--ease);
+  }
+  .proc-card:hover{background:#fbf9f5}
+  .proc-thumb{
+    aspect-ratio:16/11;width:100%;
+    background:linear-gradient(135deg,#dbe1eb 0%,#c3ccdb 55%,#b3bdd0 100%);
+    position:relative;overflow:hidden;
+  }
+  .proc-thumb::before{
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;opacity:.5;
+    background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2316243f' stroke-width='1.3'%3E%3Crect x='3' y='3' width='18' height='18' rx='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.6'/%3E%3Cpath d='M21 15l-5-5L5 21'/%3E%3C/svg%3E");
+  }
+  .proc-thumb::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 55%,rgba(22,36,63,.18));
+  }
+  .proc-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
+  .proc-body h3{font-size:23px;margin-bottom:10px}
+  .proc-body p{font-size:14.5px;color:var(--muted);flex:1}
+  .proc-more{
+    margin-top:18px;font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;
+    font-weight:500;color:var(--navy);display:inline-flex;align-items:center;gap:8px;
+  }
+  .proc-more .arw{transition:transform .3s var(--ease)}
+  .proc-card:hover .arw{transform:translateX(5px)}
+  .proc-foot{margin-top:44px;text-align:center}
+  @media(max-width:920px){.proc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.proc-grid{grid-template-columns:1fr}}
 
-/* ── VALUE GRID ── */
-.val-label { font-size:11px; letter-spacing:0.22em; text-transform:uppercase; color:var(--steel); margin:26px 0 12px; display:flex; align-items:center; gap:14px; font-weight:600; }
-.val-label::before { content:''; flex:0 0 24px; height:2px; background:var(--steel); }
-.val-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
-.val { background:rgba(184,150,90,0.06); border:1px solid rgba(184,150,90,0.16); padding:16px 18px; }
-.val-heading { font-size:14px; color:var(--text); font-weight:600; margin-bottom:6px; line-height:1.3; }
-.val-body { font-size:13px; color:var(--muted); line-height:1.72; font-weight:300; }
-.val-body strong { color:var(--text); font-weight:500; }
+  /* ---------------- surgeon (dark) ---------------- */
+  .surgeon{background:var(--navy);color:#fff}
+  .surgeon .eyebrow{color:#cdd7e8}
+  .surgeon .eyebrow::before{background:#cdd7e8}
+  .surgeon .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:70px;align-items:center}
+  .surgeon-photo{
+    aspect-ratio:4/5;border-radius:var(--radius);
+    background:linear-gradient(160deg,#3a4a66,#2a3a56 70%,#1d2b45);
+    position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+  }
+  .surgeon-photo::after{
+    content:"Portrait";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);
+  }
+  .surgeon-copy h2{color:#fff;font-size:clamp(30px,3.4vw,44px);margin:16px 0 22px}
+  .surgeon-copy p{color:#aebbd1;margin-bottom:16px}
+  .cred-list{margin:26px 0 32px;border-top:1px solid rgba(255,255,255,.14)}
+  .cred-list .cred{
+    display:flex;gap:16px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);
+    font-size:14.5px;
+  }
+  .cred .c-key{font-weight:500;color:#fff;min-width:150px}
+  .cred .c-val{color:#aebbd1}
+  @media(max-width:900px){
+    .surgeon .wrap{grid-template-columns:1fr;gap:40px}
+    .surgeon-photo{max-width:420px}
+  }
 
-/* ── TIMELINE ── */
-.timeline { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; margin:16px 0; }
-.phase { border:1px solid var(--border); padding:26px 22px; background:var(--bg-mid); }
-.phase-num { font-family:'Barlow Condensed',sans-serif; font-size:56px; font-weight:800; color:var(--gold); opacity:0.12; line-height:1; display:block; margin-bottom:4px; }
-.phase-label { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:8px; font-weight:600; }
-.phase-name { font-family:'Barlow Condensed',sans-serif; font-size:22px; font-weight:700; color:var(--text); margin-bottom:16px; text-transform:uppercase; letter-spacing:0.03em; }
-.phase ul { list-style:none; display:flex; flex-direction:column; gap:8px; }
-.phase li { font-size:13px; color:var(--muted); padding-left:14px; border-left:2px solid var(--border); line-height:1.5; font-weight:300; }
-.phase li strong { color:var(--text); font-weight:500; display:block; }
+  /* ---------------- before & after (signature slider, light) ---------------- */
+  .ba{background:var(--white)}
+  .ba h2{font-size:clamp(30px,3.6vw,46px);margin-top:18px}
+  .ba-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:48px}
+  .ba-top p{color:var(--muted);max-width:44ch;margin-top:16px}
+  .ba-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}
+  .ba-slider{
+    position:relative;aspect-ratio:3/2;border-radius:var(--radius);overflow:hidden;
+    user-select:none;cursor:ew-resize;box-shadow:0 24px 50px -28px rgba(22,36,63,.45);
+  }
+  .ba-img{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .ba-before{background:linear-gradient(135deg,#42506b,#5d6d8b)}
+  .ba-after{position:absolute;inset:0;width:50%;overflow:hidden;background:transparent}
+  .ba-after .ba-after-inner{
+    position:absolute;inset:0;width:var(--slider-w,none);
+    background:linear-gradient(135deg,#cfd6e2,#aab6ca);
+    display:flex;align-items:center;justify-content:center;color:rgba(22,36,63,.55)}
+  .ba-handle{
+    position:absolute;top:0;bottom:0;left:50%;width:2px;background:#fff;transform:translateX(-1px);z-index:3}
+  .ba-handle::after{
+    content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    width:44px;height:44px;border-radius:50%;background:#fff;
+    box-shadow:0 4px 14px rgba(0,0,0,.3);
+  }
+  .ba-handle::before{
+    content:"‹ ›";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+    z-index:1;color:var(--navy);font-size:16px;letter-spacing:2px;font-weight:600;
+  }
+  .ba-tag{position:absolute;top:14px;z-index:2;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    background:rgba(11,20,38,.55);color:#fff;padding:6px 12px;border-radius:3px}
+  .ba-tag.l{left:14px}.ba-tag.r{right:14px}
+  .ba-aside h3{color:var(--navy);font-size:26px;margin-bottom:14px}
+  .ba-aside p{color:var(--muted);margin-bottom:26px;font-size:15px}
+  @media(max-width:880px){.ba-layout{grid-template-columns:1fr;gap:34px}}
 
-/* ── ROI GRID ── */
-.roi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:3px; margin:16px 0; }
-.roi-card { background:var(--bg-mid); border:1px solid var(--border2); padding:22px 18px; }
-.roi-num { font-family:'Barlow Condensed',sans-serif; font-size:40px; font-weight:800; color:var(--gold-lt); display:block; line-height:1; margin-bottom:6px; }
-.roi-label { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--faint); display:block; margin-bottom:10px; font-weight:500; }
-.roi-note { font-size:13px; color:var(--muted); line-height:1.65; font-weight:300; }
-.roi-note strong { color:var(--text); font-weight:500; }
+  /* ---------------- experience ---------------- */
+  .exp{background:var(--bg-alt)}
+  .exp-grid{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:2px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .exp-item{background:var(--white);padding:38px 30px 42px}
+  .exp-item .e-ico{width:34px;height:34px;color:var(--navy);margin-bottom:22px}
+  .exp-item h3{font-size:21px;margin-bottom:12px}
+  .exp-item p{font-size:14px;color:var(--muted)}
+  @media(max-width:900px){.exp-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.exp-grid{grid-template-columns:1fr}}
 
-/* ── SUMMARY TABLE ── */
-.sum-table { border:1px solid var(--border); overflow:hidden; margin-bottom:24px; }
-.sum-row { display:grid; grid-template-columns:1fr 140px 200px; border-bottom:1px solid var(--border2); }
-.sum-row.hdr { background:rgba(184,150,90,0.08); border-bottom:1px solid var(--border); }
-.sum-row.hdr > div { padding:14px 22px; font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; }
-.sum-row > div { padding:18px 22px; }
-.sum-label { font-size:15px; color:var(--text); font-weight:500; }
-.sum-sub { font-size:13px; color:var(--muted); margin-top:4px; font-weight:300; }
-.sum-num { font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:700; color:var(--gold-lt); align-self:center; }
-.sum-timing { font-size:13px; color:var(--muted); align-self:center; font-weight:300; }
-.sum-divider { background:rgba(184,150,90,0.05); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
-.sum-divider > div { padding:10px 22px; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); font-weight:600; }
-.sum-total-row { background:rgba(42,138,122,0.07); border-top:1px solid rgba(42,138,122,0.25); border-bottom:none; }
-.sum-total-big { font-family:'Barlow Condensed',sans-serif; font-size:38px; font-weight:800; color:#3dbfaa; padding:22px; align-self:center; }
-.sum-total-note { font-size:13px; color:#3dbfaa; padding:22px; align-self:center; font-weight:400; }
+  /* ---------------- testimonials (dark) ---------------- */
+  .quotes{background:var(--navy)}
+  .quotes .wrap{text-align:center}
+  .quotes .stars{color:#e5eaf3;letter-spacing:4px;font-size:16px;margin-bottom:26px}
+  .quotes blockquote{
+    font-family:'Fraunces',serif;font-weight:300;font-style:italic;
+    font-size:clamp(24px,3.1vw,38px);color:#fff;line-height:1.3;
+    max-width:20ch;margin:0 auto;letter-spacing:-.01em;
+  }
+  .quotes .q-attr{margin-top:30px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#9fb0cc}
+  .q-dots{display:flex;gap:9px;justify-content:center;margin-top:44px}
+  .q-dots span{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.22)}
+  .q-dots span.on{background:#fff}
 
-/* ── FOOTER ── */
-.doc-footer { border-top:1px solid var(--border); padding:28px var(--pad); display:flex; justify-content:space-between; align-items:center; font-size:13px; color:var(--faint); letter-spacing:0.06em; flex-wrap:wrap; gap:12px; }
+  /* ---------------- locations ---------------- */
+  .loc{background:var(--bg-alt)}
+  .loc-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .loc-map{height:200px;background:linear-gradient(135deg,#dbe1ea,#c4cddb);position:relative}
+  .loc-map::after{content:"Map";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,36,63,.35)}
+  .loc-body{padding:30px 32px 34px}
+  .loc-body .l-city{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-soft);font-weight:500}
+  .loc-body h3{font-size:25px;margin:8px 0 16px}
+  .loc-body p{font-size:14.5px;color:var(--muted);margin-bottom:6px}
+  .loc-body .l-phone{color:var(--navy);font-weight:500;margin-top:14px;display:inline-block}
+  .loc-serve{margin-top:44px;text-align:center;color:var(--muted);font-size:14.5px}
+  .loc-serve strong{color:var(--navy);font-weight:500}
+  @media(max-width:760px){.loc-grid{grid-template-columns:1fr}}
+
+  /* ---------------- CTA band ---------------- */
+  /* ---------------- consultation form ---------------- */
+  .consult{background:var(--navy);color:#fff;padding:104px 0}
+  .consult-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:start}
+  .consult-copy .eyebrow{color:#cdd7e8}
+  .consult-copy .eyebrow::before{background:#cdd7e8}
+  .consult-copy h2{color:#fff;font-size:clamp(30px,3.8vw,50px);font-weight:300;margin:18px 0 20px;max-width:14ch}
+  .consult-copy h2 em{font-style:italic;font-weight:400}
+  .consult-copy p{color:#aebbd1;max-width:42ch;margin-bottom:34px}
+  .consult-detail{border-top:1px solid rgba(255,255,255,.14);padding-top:24px}
+  .consult-detail .cd{display:flex;gap:14px;padding:11px 0;font-size:14.5px;align-items:baseline}
+  .consult-detail .cd-key{color:#8fa0bd;min-width:96px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+  .consult-detail .cd-val{color:#e7ecf4}
+  .consult-detail .cd-val a{color:#fff}
+
+  .form-card{background:#fff;border-radius:var(--radius);padding:38px 38px 40px}
+  .form-card .fc-head{font-family:'Fraunces',serif;font-size:22px;color:var(--navy);margin-bottom:24px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-soft);font-weight:500;margin-bottom:7px}
+  .field input,.field select,.field textarea{
+    width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);
+    background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);
+    padding:13px 14px;transition:border-color .25s,background .25s;
+  }
+  .field textarea{min-height:104px;resize:vertical}
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--navy-soft);background:#fff;
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-card .btn{width:100%;margin-top:6px}
+  .form-note{font-size:12px;color:var(--muted);margin-top:14px;text-align:center;line-height:1.5}
+  .form-success{
+    display:none;text-align:center;padding:44px 20px;
+  }
+  .form-success.show{display:block}
+  .form-success .fs-ico{width:52px;height:52px;margin:0 auto 18px;color:var(--navy)}
+  .form-success h3{font-size:24px;margin-bottom:10px}
+  .form-success p{color:var(--muted);font-size:15px}
+  @media(max-width:900px){
+    .consult-grid{grid-template-columns:1fr;gap:40px}
+    .consult-copy h2{max-width:none}
+  }
+  @media(max-width:480px){
+    .field-row{grid-template-columns:1fr}
+    .form-card{padding:28px 24px 30px}
+  }
+
+  /* ---------------- footer ---------------- */
+  footer{background:#0f1b30;color:#c3cddd;padding:70px 0 30px;font-size:14px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:40px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+  .foot-brand .b-name{font-family:'Fraunces',serif;font-size:22px;color:#fff}
+  .foot-brand .b-sub{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#8496b3;margin-top:4px}
+  .foot-brand p{margin-top:18px;color:#95a3bd;max-width:34ch}
+  .foot-col h4{font-family:'Inter',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#8496b3;font-weight:500;margin-bottom:18px}
+  .foot-col a,.foot-col p{display:block;color:#c3cddd;margin-bottom:11px;transition:color .25s}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:14px;color:#7d8daa;font-size:12.5px}
+  .foot-bottom a{color:#7d8daa}
+  @media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr;gap:36px}}
+  @media(max-width:480px){.foot-grid{grid-template-columns:1fr}}
+
+  /* reveal on scroll */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+  }
+  :focus-visible{outline:2px solid var(--navy-soft);outline-offset:3px}
 </style>
 </head>
 <body>
 
-<!-- ══ COVER ══ -->
-<div class="cover">
-  <div class="cover-accent-bar"></div>
-  <div class="cover-top">
-    <div>
-      <span class="cover-logo-name">Zeiderman Plastic Surgery</span>
-      <span class="cover-logo-sub">Napa Valley, California</span>
+<!-- ============ UTILITY BAR ============ -->
+<div class="utility">
+  <div class="wrap">
+    <div class="u-left">
+      <a href="tel:7074483436">707.448.3436</a>
+      <span class="u-dot">·</span>
+      <span>Napa &amp; Vacaville</span>
     </div>
-    <div class="cover-badge">Proposal · April 2026</div>
-  </div>
-
-  <div class="cover-main">
-    <div class="cover-eyebrow">Website &amp; Digital Marketing Proposal &middot; Azalea Digital Marketing</div>
-    <h1 class="cover-h1">Zeiderman<br>Plastic Surgery<br><em>Website & digital marketing proposal.</em></h1>
-    <p class="cover-sub">Your practice, your name, your site. We launch with 10 procedure pages and 10 before &amp; after galleries, then grow steadily to 60+ procedures, full nonsurgical coverage including fillers and neuromodulators, and hundreds of galleries as new cases come in. <strong>Right now, patients who search your name find you, but the lead routes to the practice, not to you. Your personal Google profile does the same. This site fixes that.</strong></p>
-    <div class="cover-stats">
-      <div class="cstat"><span class="cstat-num">$7.5k</span><span class="cstat-lbl">Setup · All Tiers</span></div>
-      <div class="cstat"><span class="cstat-num">$899</span><span class="cstat-lbl">Tier 1 / Month</span></div>
-      <div class="cstat"><span class="cstat-num">$1,099</span><span class="cstat-lbl">Tier 2 / Month</span></div>
-      <div class="cstat"><span class="cstat-num">$1,249</span><span class="cstat-lbl">Tier 3 / Month</span></div>
-      <div class="cstat"><span class="cstat-num">$500+</span><span class="cstat-lbl">Social Media Add-On / Mo</span></div>
+    <div class="u-right">
+      <a href="#locations">Locations</a>
+      <a href="https://www.instagram.com/drmatthewzeiderman" target="_blank" rel="noopener">Instagram</a>
+      <a href="#contact">Patient Portal</a>
     </div>
-  </div>
-
-  <div class="cover-bottom">
-    <span>Prepared for Dr. Matthew Zeiderman &middot; Confidential</span>
-    <span>zeidermanplasticsurgery.com · Azalea Digital Marketing · April 2026</span>
   </div>
 </div>
 
-<div class="doc">
-
-<!-- ══ SECTION 1 WHAT WE'RE BUILDING ══ -->
-<div class="sec" style="border-top:none; padding-top:80px; margin-top:0;">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">01</span>
-      <div class="sec-eye">The Launch Plan</div>
-      <h2 class="sec-title">What we're building.<br><em>And how it grows from there.</em></h2>
+<!-- ============ HEADER / NAV ============ -->
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand">
+      <span class="b-name">Zeiderman</span>
+      <span class="b-sub">Plastic Surgery</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#procedures">Procedures</a>
+      <a href="#gallery">Before &amp; After</a>
+      <a href="#surgeon">Dr. Zeiderman</a>
+      <a href="#experience">The Practice</a>
+      <a href="#locations">Locations</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#gallery" class="link-gallery">Gallery</a>
+      <a href="#contact" class="btn btn-solid">Book Now</a>
+      <button class="hamburger" id="openMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <span class="sec-tag">Setup & Content</span>
   </div>
+</header>
 
-  <div class="grid-2" style="margin-bottom:3px;">
-    <div class="card">
-      <div class="card-accent"></div>
-      <span class="card-label">The Site at Launch</span>
-      <div class="card-heading">Your Practice, Live from Day One.</div>
-      <p class="card-body" style="margin-bottom:16px;">zeidermanplasticsurgery.com launches as a fully custom, purpose-built practice site. No templates, no borrowed identity. Your credentials, your voice, and your cases are front and center from the first page.</p>
-      <div style="border-top:1px solid var(--border2); padding-top:14px; display:flex; flex-direction:column; gap:10px;">
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text); display:block; margin-bottom:2px;">10 procedure pages at launch</strong>Each fully written with overview, candidacy, process, recovery, results, and FAQs. Optimized for Napa and Solano County search from day one, with breast, body, and face all represented at launch.</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text); display:block; margin-bottom:2px;">10 galleries at launch, growing continuously</strong>10 before &amp; after cases published at launch alongside the procedure pages. New cases get added on an ongoing basis as photos come in, building toward hundreds of galleries over time.</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text); display:block; margin-bottom:2px;">Full technical stack</strong>GA4, Meta Pixel, call tracking, schema markup, Google Business Profile, ADA compliance, and SSL all configured from day one.</div>
+<!-- mobile drawer -->
+<div class="drawer" id="drawer">
+  <div class="drawer-top">
+    <div class="brand">
+      <span class="b-name">Zeiderman</span>
+      <span class="b-sub">Plastic Surgery</span>
+    </div>
+    <button class="drawer-close" id="closeMenu" aria-label="Close menu">&times;</button>
+  </div>
+  <nav class="drawer-links">
+    <a href="#procedures">Procedures</a>
+    <a href="#gallery">Before &amp; After</a>
+    <a href="#surgeon">Dr. Zeiderman</a>
+    <a href="#experience">The Practice</a>
+    <a href="#locations">Locations</a>
+  </nav>
+  <div class="drawer-actions">
+    <a href="#contact" class="btn btn-solid-light">Book Now</a>
+    <a href="tel:7074483436" class="btn btn-ghost-light">Call 707.448.3436</a>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <!-- Swap this div for the <video> markup in the CSS comment when B-roll is ready -->
+  <div class="hero-media"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <span class="eyebrow">Napa &middot; Vacaville, California</span>
+      <h1>Look refreshed, <em>feel like yourself</em>.</h1>
+      <p class="lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit voluptate velit esse cillum eu fugiat.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-solid-light">Book a Consultation</a>
+        <a href="#gallery" class="btn btn-ghost-light">View Before &amp; After</a>
       </div>
     </div>
-    <div class="card">
-      <div class="card-accent teal"></div>
-      <span class="card-label teal">The Content Plan</span>
-      <div class="card-heading">A Strong Backlog. A Growing Library.</div>
-      <p class="card-body" style="margin-bottom:16px;">The site is built as an interconnected web. Your profile links to your procedures. Your procedures link to relevant galleries and blogs. Your galleries link to consultation pages. Everything is designed to guide a patient toward booking, not dead-end. The content pipeline feeds it continuously: procedure pages, SEO enhancements, new pages, blogs, case studies, and gallery entries compounding every month.</p>
-      <div style="border-top:1px solid var(--border2); padding-top:14px; display:flex; flex-direction:column; gap:8px;">
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text);">SEO enhancements</strong> to existing procedure pages: title tags, schema, FAQs, internal linking</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text);">New procedure & conditions pages</strong> added monthly as the library expands</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text);">Blogs & patient education</strong> authority content written to rank and convert</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.6;"><strong style="color:var(--text);">Gallery & case studies</strong> published on a steady cadence, each tagged and structured for search visibility</div>
+  </div>
+</section>
+
+<!-- ============ TRUST STRIP ============ -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><div class="t-num">12+</div><div class="t-lab">Years in practice</div></div>
+    <div class="trust-item"><div class="t-num">2</div><div class="t-lab">Convenient locations</div></div>
+    <div class="trust-item"><div class="t-num">4.9</div><div class="t-lab">Average patient rating</div></div>
+    <div class="trust-item"><div class="t-num">100%</div><div class="t-lab">Personalized care</div></div>
+  </div>
+</div>
+
+<!-- ============ PROCEDURES ============ -->
+<section class="block proc reveal" id="procedures">
+  <div class="wrap">
+    <div class="proc-head">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2>Procedures, tailored to you</h2>
       </div>
+      <a href="#" class="btn btn-outline">View all procedures</a>
+    </div>
+
+    <div class="proc-grid">
+      <!-- ordered per intake priority -->
+      <a class="proc-card" href="#">
+        <div class="proc-thumb"></div>
+        <div class="proc-body">
+          <h3>Face &amp; Neck Lift</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <span class="proc-more">Learn more <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="proc-card" href="#">
+        <div class="proc-thumb"></div>
+        <div class="proc-body">
+          <h3>Eyelid Surgery</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <span class="proc-more">Learn more <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="proc-card" href="#">
+        <div class="proc-thumb"></div>
+        <div class="proc-body">
+          <h3>Breast Augmentation</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <span class="proc-more">Learn more <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="proc-card" href="#">
+        <div class="proc-thumb"></div>
+        <div class="proc-body">
+          <h3>Breast Lift</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <span class="proc-more">Learn more <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="proc-card" href="#">
+        <div class="proc-thumb"></div>
+        <div class="proc-body">
+          <h3>Mommy Makeover</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <span class="proc-more">Learn more <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+      <a class="proc-card" href="#">
+        <div class="proc-thumb"></div>
+        <div class="proc-body">
+          <h3>Abdominoplasty</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          <span class="proc-more">Learn more <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+    </div>
+    <div class="proc-foot">
+      <a href="#" class="btn btn-outline">Breast Reduction, Arm Lift, Laser Resurfacing &amp; more</a>
     </div>
   </div>
+</section>
 
-</div>
-
-<!-- ══ SECTION 2 ROADMAP ══ -->
-<div class="sec">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">02</span>
-      <div class="sec-eye">The Plan</div>
-      <h2 class="sec-title">Build a practice presence<br><em>that grows with the practice.</em></h2>
-    </div>
-    <span class="sec-tag">2026/2027 Roadmap</span>
-  </div>
-
-  <div class="callout">
-    <div class="callout-bar teal"></div>
-    <div class="callout-inner">
-      <div class="callout-label teal">How It Works</div>
-      <p>The setup gets your site live with 10 fully written procedure pages and a gallery ready to grow. Then the monthly program takes over: new procedure pages, SEO enhancements, blogs, case studies, galleries, and GEO authority pages on a compounding schedule. <strong>The tier you choose determines how fast the library grows and how broadly the Napa and Solano market is covered. The drip approach is intentional. Google rewards sites that grow consistently over time, not ones that launch complete and go quiet.</strong></p>
+<!-- ============ SURGEON ============ -->
+<section class="block surgeon reveal" id="surgeon">
+  <div class="wrap">
+    <div class="surgeon-photo"></div>
+    <div class="surgeon-copy">
+      <span class="eyebrow">Your surgeon</span>
+      <h2>Meet Dr. Matthew Zeiderman</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud.</p>
+      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.</p>
+      <div class="cred-list">
+        <div class="cred"><span class="c-key">Training</span><span class="c-val">Fellowship-trained plastic surgeon</span></div>
+        <div class="cred"><span class="c-key">Focus</span><span class="c-val">Face, eyelids, and breast surgery</span></div>
+        <div class="cred"><span class="c-key">Philosophy</span><span class="c-val">Natural, tasteful, results-driven</span></div>
+      </div>
+      <a href="#" class="btn btn-solid-light">About the practice</a>
     </div>
   </div>
+</section>
 
-  <div class="timeline">
-    <div class="phase">
-      <span class="phase-num">01</span>
-      <div class="phase-label">Now → Launch · The Setup</div>
-      <div class="phase-name">Go Live</div>
-      <ul>
-        <li><strong>Website Built</strong>Built custom from scratch. Your voice, your aesthetic, and your credentials are front and center throughout.</li>
-        <li><strong>Logo & Brand</strong>Full brand build included if needed: logo, color system, typography, and a brand standards doc so everything stays consistent.</li>
-        <li><strong>10 Priority Procedures</strong>Each page fully written with candidacy criteria, process overview, recovery expectations, results, and FAQs. Ready to rank from the start.</li>
-        <li><strong>Gallery Live</strong>Initial cases published at launch, with more added at roughly two per week until the full backlog is live. After that, new cases get added as photos come in.</li>
-        <li><strong>Full Technical Setup</strong>GA4, Meta Pixel, call tracking, schema, sitemap, Core Web Vitals baseline, Google Business Profile.</li>
-      </ul>
-    </div>
-    <div class="phase">
-      <span class="phase-num">02</span>
-      <div class="phase-label">Launch → December · Your Tier</div>
-      <div class="phase-name">Authority Build</div>
-      <ul>
-        <li><strong>Procedure Library</strong>New surgical and nonsurgical pages added monthly, including fillers, neuromodulators, skin treatments, and more. Tier 3 targets 60 or more procedure pages by the end of 2026.</li>
-        <li><strong>SEO & Content</strong>Napa and Solano County targeted blogs, conditions pages, and patient education pieces building authority every month.</li>
-        <li><strong>GEO Expansion</strong>Tier 2 adds one surrounding region. Tier 3 adds two, covering a broader slice of the Napa and Solano corridor.</li>
-        <li><strong>Social & Reputation</strong>Reputation monitoring and review management scale with your tier. Social media is available as a separate add-on.</li>
-        <li><strong>Email Marketing</strong>Tier 3 includes a monthly patient newsletter.</li>
-      </ul>
-    </div>
-    <div class="phase">
-      <span class="phase-num">03</span>
-      <div class="phase-label">2027 and Beyond</div>
-      <div class="phase-name">Sustained Growth</div>
-      <ul>
-        <li><strong>All Services Continue</strong>Same tier, same program. The cadence sustains and deepens everything built in year one.</li>
-        <li><strong>Content Keeps Compounding</strong>Every page published this year keeps ranking. Authority deepens.</li>
-        <li><strong>Expand or Adjust</strong>Tiers can be upgraded at any time. Once rankings are established, your position becomes increasingly difficult for anyone else to close.</li>
-        <li><strong>Monthly Reporting</strong>Traffic, rankings, leads, conversions, and reputation tracked and reported every month.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- ══ SECTION 3 SETUP PACKAGE ══ -->
-<div class="sec">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">03</span>
-      <div class="sec-eye">Setup Package</div>
-      <h2 class="sec-title">The $7,500 site build.<br><em>Everything to launch right.</em></h2>
-    </div>
-    <span class="sec-tag">One-Time Fee &middot; All Tiers</span>
-  </div>
-
-  <div class="setup-tier">
-    <div class="setup-tier-header">
+<!-- ============ BEFORE & AFTER (signature slider) ============ -->
+<section class="block ba reveal" id="gallery">
+  <div class="wrap">
+    <div class="ba-top">
       <div>
-        <span class="setup-badge">One-Time Setup Fee · All Tiers</span>
-        <div class="setup-name">Site Foundation & Launch</div>
-        <div class="setup-desc">A custom-built site built entirely around you, with 10 fully written procedure pages, 10 launch galleries, and a complete technical infrastructure. Everything needed to go live with a presence worth finding.</div>
+        <span class="eyebrow">The results speak</span>
+        <h2>Before &amp; after</h2>
       </div>
-      <div class="setup-price">
-        <span class="setup-price-num">$7,500</span>
-        <span class="setup-price-lbl">One-Time Investment</span>
-      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.</p>
     </div>
-    <div class="setup-body">
-      <div class="setup-section-title">Website Core Pages</div>
-      <div class="deliverable-grid-3">
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Homepage</strong>Hero, featured procedures, doctor intro, gallery preview, brag bar, CTA</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>About the Practice</strong>Your philosophy, your approach, what sets you apart from other surgeons in the area</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Meet Dr. Zeiderman</strong>Your full bio, credentials, training, and personal approach to plastic surgery</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Consultation Page</strong>What to expect at a consult, booking form or phone CTA, and patient FAQs</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Patient Resources</strong>Pre and post-op guides, financing info, and a patient FAQ hub</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Testimonials</strong>Patient reviews structured with schema markup and integrated with Google</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Gallery Structure</strong>Gallery hub built and structured at launch. Cases published at the start and added on an ongoing basis as content is completed</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Blog Index</strong>Content hub for all SEO articles, structured and scalable from day one</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Contact / Location</strong>Contact form, map embed, call tracking, and Napa County local signals</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Header & Footer</strong>Global navigation, mobile menu, clear CTAs, trust signals, and board certification callouts</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Privacy / Legal</strong>HIPAA-aware language, medical disclaimer, and compliance baked in</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>News & Announcements</strong>Awards, media coverage, events, and practice updates</div></div>
+    <div class="ba-layout">
+      <div class="ba-slider" id="baSlider">
+        <div class="ba-img ba-before">Before</div>
+        <div class="ba-after" id="baAfter">
+          <div class="ba-after-inner" id="baAfterInner">After</div>
+        </div>
+        <span class="ba-tag l">Before</span>
+        <span class="ba-tag r">After</span>
+        <div class="ba-handle" id="baHandle"></div>
       </div>
-
-      <div class="setup-section-title">10 Launch Procedure Pages Napa-Optimized</div>
-      <div class="deliverable-grid">
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Dr. Zeiderman's 10 Priority Procedures</strong>Each page fully written with overview, candidacy, process, recovery, results, and FAQs. Optimized for Napa and Solano County search from day one</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Breast, Body & Face at Launch</strong>Breast, body, and face all represented at launch. Patients get the full picture from day one</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Schema Markup on Every Page</strong>Medical procedure, FAQ, and physician schema configured for Google featured snippets and AI-powered search results</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Internal Linking Strategy</strong>Every procedure page cross-linked to relevant galleries, consultation pages, and related procedures. The whole site works together to move patients toward booking</div></div>
-      </div>
-
-      <div class="setup-section-title">Technical Infrastructure</div>
-      <div class="deliverable-grid-3">
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>GA4 + Conversion Tracking</strong>Full analytics setup with goal events, form tracking, and call tracking</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Meta Pixel</strong>Ad attribution, retargeting audience creation, and conversion event tracking</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Call Tracking</strong>Dynamic number insertion with call attribution and lead source data</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>SEO Foundation</strong>XML sitemap, canonical tags, OG tags, robots.txt, and schema defaults</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Napa GEO Setup</strong>LocalBusiness schema, map embed, and local citation signals for Napa County</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Google Business Profile</strong>New listing set up for Zeiderman Plastic Surgery</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>Speed & Core Web Vitals</strong>Image compression, caching, and performance baseline targeting Core Web Vitals</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>ADA Compliance</strong>Accessible markup, alt text, keyboard navigation, and accessible forms</div></div>
-        <div class="deliverable"><span class="deliverable-check">✓</span><div class="deliverable-text"><strong>SSL + Hosting Config</strong>Secure hosting environment with CDN and a staging setup for safe deployments</div></div>
-      </div>
-
-      <div class="val-label">What makes $7,500 the right number</div>
-      <div class="val-grid">
-        <div class="val"><div class="val-heading">10 procedure pages is 40 80 hours of expert medical writing.</div><div class="val-body">4 8 hours per page to research, write, and optimize. Launching with 10 pages and growing the library over time also aligns with how Google rewards sites consistent growth outperforms a completed site that goes quiet. <strong>The drip approach is strategy, not a compromise.</strong></div></div>
-        <div class="val"><div class="val-heading">A strong content backlog means the program hits the ground running from month one.</div><div class="val-body">Procedure SEO enhancements, new pages, blogs, case studies, and gallery entries are all in the pipeline from month one. <strong>There's no ramp-up period waiting for content to exist.</strong></div></div>
-        <div class="val"><div class="val-heading">This is not a template build.</div><div class="val-body">Every page is purpose-built for you. Your voice, your credentials, your cases throughout. Clean start, no shared identity. <strong>A clean start.</strong></div></div>
-        <div class="val"><div class="val-heading">Dripped content is how Google rewards a growing practice.</div><div class="val-body">A site that publishes consistently over time earns more authority than one that launches fully built and then sits still. The monthly program is what turns the setup into lasting rankings. <strong>That's the strategy, not just the business model.</strong></div></div>
+      <div class="ba-aside">
+        <h3>See the difference</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim.</p>
+        <a href="#" class="btn btn-outline">Explore the full gallery</a>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- ══ SECTION 4 MONTHLY MANAGEMENT ══ -->
-<div class="sec">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">04</span>
-      <div class="sec-eye">Monthly Management</div>
-      <h2 class="sec-title">Three tiers. One goal.<br><em>Get Dr. Zeiderman found first.</em></h2>
+<!-- ============ EXPERIENCE ============ -->
+<section class="block exp reveal" id="experience">
+  <div class="wrap">
+    <div class="section-head" style="max-width:560px">
+      <span class="eyebrow">The experience</span>
+      <h2>Boutique care, start to finish</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
     </div>
-    <span class="sec-tag">$899 / $1,099 / $1,249 per Month</span>
-  </div>
-
-  <div class="callout">
-    <div class="callout-bar teal"></div>
-    <div class="callout-inner">
-      <div class="callout-label teal">Choosing Your Tier</div>
-      <p><strong>Tier 1 ($899/mo)</strong> covers essential SEO, site management, and 2 content pieces per month, including procedure pages, blogs, galleries, and case studies built steadily over time. <strong>Tier 2 ($1,099/mo)</strong> accelerates with 4 content pieces, full reputation management, an additional GEO region, and deeper SEO coverage. <strong>Tier 3 ($1,249/mo)</strong> is the full program: Elite SEO with backlink building, 8 content pieces per month, 2 GEO regions, email marketing, and priority across all content types. Social media is available as a standalone add-on at $500 per month and can be added to any tier.</p>
+    <div class="exp-grid">
+      <div class="exp-item">
+        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-9.5-9C.8 8.5 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.2 4 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
+        <h3>Personal consultations</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+      </div>
+      <div class="exp-item">
+        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.4 6.9H22l-6 4.5 2.3 7L12 16.9 5.7 20.4 8 13.4l-6-4.5h7.6z"/></svg>
+        <h3>Natural, tasteful results</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+      </div>
+      <div class="exp-item">
+        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 7h-3V5a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3v2H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM9 5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2H9z"/></svg>
+        <h3>Concierge coordination</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+      </div>
+      <div class="exp-item">
+        <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7z"/><circle cx="12" cy="9" r="2.4"/></svg>
+        <h3>Two convenient locations</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod.</p>
+      </div>
     </div>
   </div>
+</section>
 
-  <!-- TIER COMPARISON TABLE -->
-  <div style="overflow-x:auto; margin:20px 0;">
-  <table style="width:100%; border-collapse:collapse; font-size:13px; min-width:640px;">
-    <thead>
-      <tr>
-        <th style="width:28%; padding:14px 16px; text-align:left; background:rgba(238,240,244,0.04); border:1px solid rgba(238,240,244,0.08); color:rgba(238,240,244,0.35); font-size:11px; letter-spacing:0.18em; text-transform:uppercase; font-weight:600;"></th>
-        <th style="padding:14px 16px; text-align:center; background:rgba(238,240,244,0.04); border:1px solid rgba(238,240,244,0.08);">
-          <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(238,240,244,0.4); font-weight:600; margin-bottom:6px;">Tier 1</div>
-          <div style="font-family:'Barlow Condensed',sans-serif; font-size:32px; font-weight:800; color:var(--gold-lt); line-height:1;">$899</div>
-          <div style="font-size:11px; color:rgba(238,240,244,0.35); margin-top:4px;">/month</div>
-          <div style="font-size:11px; color:rgba(238,240,244,0.3); margin-top:3px;">$7,500 setup</div>
-        </th>
-        <th style="padding:14px 16px; text-align:center; background:rgba(238,240,244,0.04); border:1px solid rgba(238,240,244,0.08);">
-          <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:rgba(238,240,244,0.4); font-weight:600; margin-bottom:6px;">Tier 2</div>
-          <div style="font-family:'Barlow Condensed',sans-serif; font-size:32px; font-weight:800; color:var(--gold-lt); line-height:1;">$1,099</div>
-          <div style="font-size:11px; color:rgba(238,240,244,0.35); margin-top:4px;">/month</div>
-          <div style="font-size:11px; color:rgba(238,240,244,0.3); margin-top:3px;">$7,500 setup</div>
-        </th>
-        <th style="padding:14px 16px; text-align:center; background:rgba(184,150,90,0.1); border:1px solid rgba(184,150,90,0.35); border-top:2px solid var(--gold);">
-          <div style="font-size:9px; letter-spacing:0.18em; text-transform:uppercase; background:var(--gold); color:#1e2229; display:inline-block; padding:3px 10px; margin-bottom:8px; font-weight:700;">Recommended</div>
-          <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:6px;">Tier 3</div>
-          <div style="font-family:'Barlow Condensed',sans-serif; font-size:32px; font-weight:800; color:var(--gold-lt); line-height:1;">$1,249</div>
-          <div style="font-size:11px; color:rgba(238,240,244,0.35); margin-top:4px;">/month</div>
-          <div style="font-size:11px; color:rgba(238,240,244,0.3); margin-top:3px;">$7,500 setup</div>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">One-Time Setup</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Setup fee</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.7); font-size:13px;">$7,500</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.7); font-size:13px;">$7,500</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; background:rgba(184,150,90,0.04); color:rgba(238,240,244,0.7); font-size:13px;">$7,500</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Setup includes</td>
-        <td colspan="3" style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.7); font-size:13px; font-weight:300;">Custom site build · 48 gallery cases migrated · 10 launch procedure pages · logo & brand identity · brand standards doc · Google Business Profile setup · review platform configuration · GA4, call tracking & Meta Pixel · ADA compliance · SSL & hosting config</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">Website Management</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Monthly updates & maintenance</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Performance, uptime & security</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">SEO</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">SEO tier</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">Essential SEO</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">Pro SEO</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--gold-lt); font-size:13px; font-weight:600; background:rgba(184,150,90,0.04);">Elite SEO</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">On-page optimization</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.6); font-size:13px;">Core pages</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.6); font-size:13px;">All pages</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:rgba(238,240,244,0.8); font-size:13px; background:rgba(184,150,90,0.04);">All pages + schema</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Local SEO & citations</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓ Priority</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Keyword tracking & rank reports</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Backlink building</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">Procedure Library (10 at launch → 60+)</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">New procedure pages / month</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">~1 / mo</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">~2 / mo</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--gold-lt); font-size:13px; font-weight:600; background:rgba(184,150,90,0.04);">~3 4 / mo</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Est. full library completion</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.4); font-size:13px;">~3 years</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.4); font-size:13px;">~18 months</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--gold-lt); font-size:13px; font-weight:700; background:rgba(184,150,90,0.04);">End of 2026</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Page enhancements (FAQs, schema, CTAs)</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓ Priority</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Conditions pages</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓ Select</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓ Full 30+</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">GEO Authority Build Napa/Solano Corridor</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Markets covered</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.6); font-size:13px;">Napa only</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">Napa + 1 region</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--gold-lt); font-size:13px; font-weight:600; background:rgba(184,150,90,0.04);">Napa + 2 regions</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Markets targeted</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.6); font-size:12px;">Vallejo / Fairfield</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:rgba(238,240,244,0.7); font-size:12px; background:rgba(184,150,90,0.04);">Vallejo / Fairfield · Vacaville / American Canyon</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">Content Marketing</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Content pieces / month</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">2 pieces</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--text); font-size:13px;">4 pieces</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--gold-lt); font-size:13px; font-weight:600; background:rgba(184,150,90,0.04);">8 pieces</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Blogs, case studies, patient education</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Before & after gallery additions</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.6); font-size:13px;">Select</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:rgba(238,240,244,0.8); font-size:13px; background:rgba(184,150,90,0.04);">Ongoing all new cases</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">Social Media</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Social media add-on</td>
-        <td colspan="3" style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.6); font-size:13px; font-weight:300;">Available from <strong style="color:var(--text);">$500/month</strong> as a standalone add-on to any tier. Covers content creation, scheduling, and engagement management across Instagram and Facebook. Pricing scales with post cadence and platform count.</td>
-      </tr>
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">Email Marketing</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Monthly newsletter</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-
-
-      <tr><td colspan="4" style="padding:8px 16px; background:rgba(184,150,90,0.06); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; border:1px solid rgba(238,240,244,0.06);">Reputation Management</td></tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Review request system</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓ Basic</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓ Full</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓ Full management</td>
-      </tr>
-      <tr>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); color:rgba(238,240,244,0.5); font-size:12px;">Google & RealSelf monitoring</td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:rgba(238,240,244,0.2);"> </td>
-        <td style="padding:12px 16px; border:1px solid rgba(238,240,244,0.06); text-align:center; color:var(--teal);">✓</td>
-        <td style="padding:12px 16px; border:1px solid rgba(184,150,90,0.2); text-align:center; color:var(--teal); background:rgba(184,150,90,0.04);">✓</td>
-      </tr>
-    </tbody>
-  </table>
+<!-- ============ TESTIMONIALS ============ -->
+<section class="block quotes reveal">
+  <div class="wrap">
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <blockquote>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</blockquote>
+    <div class="q-attr">Verified Google Review</div>
+    <div class="q-dots"><span class="on"></span><span></span><span></span></div>
   </div>
+</section>
 
-  <!-- LAUNCH VS EOY PANEL -->
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; margin:20px 0 3px;" class="grid-2">
-    <div style="background:var(--bg-mid); border:1px solid var(--border2); overflow:hidden;">
-      <div style="background:var(--bg-card); padding:22px 26px; border-bottom:1px solid var(--border);">
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:6px;">Day One All Tiers</div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--text); text-transform:uppercase; letter-spacing:0.02em;">Zeiderman Plastic Surgery launches</div>
-        <div style="display:flex; gap:24px; margin-top:16px; flex-wrap:wrap;">
-          <div><span style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:var(--gold-lt); line-height:1; display:block;">10</span><span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Procedure pages</span></div>
-          <div><span style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:var(--gold-lt); line-height:1; display:block;">48</span><span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Gallery cases live</span></div>
-          <div><span style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:var(--gold-lt); line-height:1; display:block;">14+</span><span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--faint);">Total pages</span></div>
+<!-- ============ LOCATIONS ============ -->
+<section class="block loc reveal" id="locations">
+  <div class="wrap">
+    <div class="section-head" style="max-width:560px">
+      <span class="eyebrow">Find us</span>
+      <h2>Two locations across Napa and Solano</h2>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-card">
+        <div class="loc-map"></div>
+        <div class="loc-body">
+          <span class="l-city">Napa</span>
+          <h3>Napa Office</h3>
+          <p>1175 Trancas Street</p>
+          <p>Napa, CA 94558</p>
+          <a href="tel:7074483436" class="l-phone">707.448.3436</a>
         </div>
       </div>
-      <div style="padding:22px 26px;">
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:12px;">10 launch procedure pages</div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:16px;">
-          <div style="background:rgba(184,150,90,0.08); border:1px solid rgba(184,150,90,0.15); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:6px; font-weight:600;">Breast</div>
-            <div style="font-size:13px; color:var(--muted); line-height:1.8; font-weight:300;">Breast augmentation + lift<br>Breast lift<br>Breast augmentation<br>Breast reduction</div>
+      <div class="loc-card">
+        <div class="loc-map"></div>
+        <div class="loc-body">
+          <span class="l-city">Vacaville</span>
+          <h3>Vacaville Office</h3>
+          <p>1001 Nut Tree Road, Suite 130</p>
+          <p>Vacaville, CA 95687</p>
+          <a href="tel:7074483436" class="l-phone">707.448.3436</a>
+        </div>
+      </div>
+    </div>
+    <p class="loc-serve">Proudly caring for patients in <strong>Napa, Vacaville, Davis, Sacramento, Walnut Creek, and Vallejo</strong>.</p>
+  </div>
+</section>
+
+<!-- ============ CTA BAND ============ -->
+<!-- ============ CONSULTATION FORM ============ -->
+<section class="consult reveal" id="contact">
+  <div class="wrap consult-grid">
+    <div class="consult-copy">
+      <span class="eyebrow">Begin your journey</span>
+      <h2>Request a <em>consultation</em></h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <div class="consult-detail">
+        <div class="cd"><span class="cd-key">Call</span><span class="cd-val"><a href="tel:7074483436">707.448.3436</a></span></div>
+        <div class="cd"><span class="cd-key">Napa</span><span class="cd-val">1175 Trancas St, Napa, CA 94558</span></div>
+        <div class="cd"><span class="cd-key">Vacaville</span><span class="cd-val">1001 Nut Tree Rd #130, Vacaville, CA 95687</span></div>
+        <div class="cd"><span class="cd-key">Social</span><span class="cd-val"><a href="https://www.instagram.com/drmatthewzeiderman" target="_blank" rel="noopener">@drmatthewzeiderman</a></span></div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <!--
+        STATIC PREVIEW: this form shows an inline thank-you via JS and does not send yet.
+        To make it deliver on GitHub Pages, create a free Formspree form and set:
+          <form action="https://formspree.io/f/YOUR_ID" method="POST"> ... </form>
+        Then remove the e.preventDefault() demo branch in the script below.
+        On the WordPress build this becomes the native contact form instead.
+      -->
+      <form id="consultForm" novalidate>
+        <div class="fc-head">Tell us about your goals</div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-first">First name</label>
+            <input id="f-first" name="first_name" type="text" autocomplete="given-name" required>
           </div>
-          <div style="background:rgba(184,150,90,0.08); border:1px solid rgba(184,150,90,0.15); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:6px; font-weight:600;">Body</div>
-            <div style="font-size:13px; color:var(--muted); line-height:1.8; font-weight:300;">Mommy makeover<br>Tummy tuck<br>Arm lift</div>
-          </div>
-          <div style="background:rgba(184,150,90,0.08); border:1px solid rgba(184,150,90,0.15); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:6px; font-weight:600;">Face</div>
-            <div style="font-size:13px; color:var(--muted); line-height:1.8; font-weight:300;">Face & neck lift<br>Blepharoplasty</div>
-          </div>
-          <div style="background:rgba(184,150,90,0.08); border:1px solid rgba(184,150,90,0.15); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:6px; font-weight:600;">+ 1 more</div>
-            <div style="font-size:13px; color:var(--muted); line-height:1.8; font-weight:300;">your choice</div>
+          <div class="field">
+            <label for="f-last">Last name</label>
+            <input id="f-last" name="last_name" type="text" autocomplete="family-name" required>
           </div>
         </div>
-        <div style="margin-top:14px;">
-          <div style="height:6px; background:rgba(238,240,244,0.06); border-radius:3px; overflow:hidden;">
-            <div style="height:100%; width:17%; background:var(--gold);"></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
           </div>
-          <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--faint); margin-top:5px;">
-            <span>Library complete</span><span>10 of 40+ at launch</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="background:var(--bg-mid); border:2px solid var(--teal); overflow:hidden;">
-      <div style="background:rgba(42,138,122,0.12); padding:22px 26px; border-bottom:1px solid rgba(42,138,122,0.25);">
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#3dbfaa; font-weight:600; margin-bottom:6px;">Tier 3 End of 2026</div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--text); text-transform:uppercase; letter-spacing:0.02em;">Full authority site</div>
-        <div style="display:flex; gap:24px; margin-top:16px; flex-wrap:wrap;">
-          <div><span style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:#3dbfaa; line-height:1; display:block;">40+</span><span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(61,191,170,0.5);">Procedure pages</span></div>
-          <div><span style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:#3dbfaa; line-height:1; display:block;">200+</span><span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(61,191,170,0.5);">Total pages</span></div>
-          <div><span style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:#3dbfaa; line-height:1; display:block;">56+</span><span style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(61,191,170,0.5);">Blog posts</span></div>
-        </div>
-      </div>
-      <div style="padding:22px 26px;">
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#3dbfaa; font-weight:600; margin-bottom:12px;">Full procedure library</div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:12px;">
-          <div style="background:rgba(42,138,122,0.08); border:1px solid rgba(42,138,122,0.2); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#3dbfaa; margin-bottom:6px; font-weight:600;">Breast</div>
-            <div style="font-size:12px; color:var(--muted); line-height:1.8; font-weight:300;">Aug · Lift · Reduction · Aug+Lift · Reconstruction · Revision · Implant removal</div>
-          </div>
-          <div style="background:rgba(42,138,122,0.08); border:1px solid rgba(42,138,122,0.2); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#3dbfaa; margin-bottom:6px; font-weight:600;">Body</div>
-            <div style="font-size:12px; color:var(--muted); line-height:1.8; font-weight:300;">Tummy tuck · Liposuction · Mommy makeover · Arm lift · Thigh lift · Gynecomastia · Post-weight-loss</div>
-          </div>
-          <div style="background:rgba(42,138,122,0.08); border:1px solid rgba(42,138,122,0.2); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#3dbfaa; margin-bottom:6px; font-weight:600;">Face</div>
-            <div style="font-size:12px; color:var(--muted); line-height:1.8; font-weight:300;">Facelift · Neck lift · Brow lift · Blepharoplasty · Chin augmentation · Fat grafting</div>
-          </div>
-          <div style="background:rgba(42,138,122,0.08); border:1px solid rgba(42,138,122,0.2); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#3dbfaa; margin-bottom:6px; font-weight:600;">Nonsurgical</div>
-            <div style="font-size:12px; color:var(--muted); line-height:1.8; font-weight:300;">Botox · Fillers · Kybella · PRP · Laser · Microneedling · RF · Chemical peels</div>
+          <div class="field">
+            <label for="f-phone">Phone</label>
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" required>
           </div>
         </div>
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#3dbfaa; font-weight:600; margin-bottom:10px; margin-top:14px;">GEO authority pages Napa/Solano corridor</div>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-bottom:14px;">
-          <div style="background:rgba(42,138,122,0.08); border:1px solid rgba(42,138,122,0.2); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#3dbfaa; margin-bottom:4px; font-weight:600;">Tier 2 Napa + 1</div>
-            <div style="font-size:12px; color:var(--muted); font-weight:300;">Napa · Vallejo / Fairfield</div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-location">Preferred location</label>
+            <select id="f-location" name="location">
+              <option>Napa</option>
+              <option>Vacaville</option>
+              <option>No preference</option>
+            </select>
           </div>
-          <div style="background:rgba(42,138,122,0.08); border:1px solid rgba(42,138,122,0.2); padding:8px 12px;">
-            <div style="font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:#3dbfaa; margin-bottom:4px; font-weight:600;">Tier 3 Napa + 2</div>
-            <div style="font-size:12px; color:var(--muted); font-weight:300;">Napa · Vallejo / Fairfield · Vacaville / American Canyon</div>
+          <div class="field">
+            <label for="f-procedure">Procedure of interest</label>
+            <select id="f-procedure" name="procedure">
+              <option>Face &amp; Neck Lift</option>
+              <option>Eyelid Surgery</option>
+              <option>Breast Augmentation</option>
+              <option>Breast Lift</option>
+              <option>Mommy Makeover</option>
+              <option>Abdominoplasty</option>
+              <option>Other / Not sure yet</option>
+            </select>
           </div>
         </div>
-        <div style="margin-top:4px;">
-          <div style="height:6px; background:rgba(238,240,244,0.06); border-radius:3px; overflow:hidden;">
-            <div style="height:100%; width:65%; background:var(--teal);"></div>
-          </div>
-          <div style="display:flex; justify-content:space-between; font-size:11px; color:rgba(61,191,170,0.6); margin-top:5px;">
-            <span>Library well underway</span><span>40+ of 60+ procedures live</span>
-          </div>
+        <div class="field">
+          <label for="f-message">How can we help?</label>
+          <textarea id="f-message" name="message" placeholder="Lorem ipsum dolor sit amet..."></textarea>
         </div>
+        <button type="submit" class="btn btn-solid">Request Consultation</button>
+        <p class="form-note">By submitting, you agree to be contacted about your consultation. We respect your privacy and never share your information.</p>
+      </form>
+
+      <div class="form-success" id="formSuccess">
+        <svg class="fs-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>
+        <h3>Thank you</h3>
+        <p>Your request has been received. A member of the Zeiderman Plastic Surgery team will reach out shortly.</p>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="callout" style="margin-top:4px;">
-    <div class="callout-bar teal"></div>
-    <div class="callout-inner">
-      <div class="callout-label teal">Why Page Count Matters</div>
-      <p>Every page is a permanent SEO asset. Procedure pages capture patients who know what they want. Conditions pages capture patients who know their problem but not yet the solution. GEO pages capture the full Napa/Solano corridor market by market. Blog posts compound authority month over month. <strong>Tier 3 doesn't just give you a website. By end of 2026, it gives you a 200+ page authority site that covers virtually every search your ideal patients are making.</strong></p>
-    </div>
-  </div>
-</div>
-
-<!-- ══ SECTION 5 ROI ══ -->
-<div class="sec">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">05</span>
-      <div class="sec-eye">Return on Investment</div>
-      <h2 class="sec-title">What it costs.<br><em>What it takes to pay for itself.</em></h2>
-    </div>
-    <span class="sec-tag">The Math</span>
-  </div>
-
-  <div class="callout">
-    <div class="callout-bar"></div>
-    <div class="callout-inner">
-      <div class="callout-label">The Only Number That Matters</div>
-      <p>Two or three surgeries that come through your website pay for the entire annual program, setup included. At $10,000 to $18,000 per case, the math is simple: <strong>two breast augmentations, two tummy tucks, two facelifts. Any two or three cases from the site in a year covers the full investment.</strong> Every patient after that is revenue you keep, and your authority keeps building every month.</p>
-    </div>
-  </div>
-
-  <div class="roi-grid">
-    <div class="roi-card">
-      <span class="roi-num">$7,500</span>
-      <span class="roi-label">One-Time Setup</span>
-      <p class="roi-note">Full custom build with 10 procedure pages, 10 launch galleries, brand identity, and a complete tech stack. Paid once.</p>
-    </div>
-    <div class="roi-card">
-      <span class="roi-num">$1,249</span>
-      <span class="roi-label">Tier 3 / Month</span>
-      <p class="roi-note">Elite SEO, full content library, GEO authority, email marketing, and full reputation management. Month-to-month after the first three months.</p>
-    </div>
-    <div class="roi-card">
-      <span class="roi-num">$22,488</span>
-      <span class="roi-label">Year One Total</span>
-      <p class="roi-note">Setup plus 12 months of Tier 3. The full first-year cost in plain numbers.</p>
-    </div>
-    <div class="roi-card" style="background:rgba(42,138,122,0.08); border-color:rgba(42,138,122,0.3);">
-      <span class="roi-num" style="color:#3dbfaa;">2 cases</span>
-      <span class="roi-label" style="color:rgba(61,191,170,0.5);">Break-Even Point</span>
-      <p class="roi-note">At $12,000 average surgical fee, the entire year one investment is covered by <strong>two booked patients</strong> from the website.</p>
-    </div>
-  </div>
-
-  <!-- SUMMARY TABLE -->
-  <div class="sum-table">
-    <div class="sum-row hdr">
-      <div>Investment Item</div>
-      <div>Amount</div>
-      <div>Break-even at $12k avg fee</div>
-    </div>
-
-    <div class="sum-divider"><div>One-Time</div></div>
-    <div class="sum-row">
-      <div><div class="sum-label">Setup fee</div><div class="sum-sub">Custom site build, 10 procedure pages, 10 launch galleries, brand identity, full tech stack</div></div>
-      <div><div class="sum-num">$7,500</div></div>
-      <div><div class="sum-timing">0.6 surgical patients</div></div>
-    </div>
-
-    <div class="sum-divider"><div>Monthly Management Tier 3</div></div>
-    <div class="sum-row">
-      <div><div class="sum-label">Monthly management × 12</div><div class="sum-sub">Elite SEO, full content library, GEO authority, email marketing, reputation management</div></div>
-      <div><div class="sum-num">$14,988</div></div>
-      <div><div class="sum-timing">1.2 surgical patients</div></div>
-    </div>
-
-    <div class="sum-row sum-total-row">
-      <div style="padding:22px;"><div class="sum-label" style="font-size:17px;">Total Year One Investment</div><div class="sum-sub">Full program setup through month 12</div></div>
-      <div class="sum-total-big">$22,488</div>
-      <div class="sum-total-note">1.9 surgical patients to break even. Everything after that is yours.</div>
-    </div>
-  </div>
-
-  <div style="display:grid; grid-template-columns:1fr 1fr; gap:3px; margin-top:3px;" class="grid-2">
-    <div style="background:var(--bg-mid); border:1px solid var(--border2); padding:24px 26px;">
-      <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:12px;">What a realistic year one looks like on Tier 3</div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border2); padding-bottom:8px;">
-          <span style="font-size:14px; color:var(--muted); font-weight:300;">Monthly site visitors (yr 1)</span>
-          <span style="font-size:14px; color:var(--text); font-weight:500;">400 to 1,200</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border2); padding-bottom:8px;">
-          <span style="font-size:14px; color:var(--muted); font-weight:300;">Consult request rate (2 to 3%)</span>
-          <span style="font-size:14px; color:var(--text); font-weight:500;">8 to 36 per month</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid var(--border2); padding-bottom:8px;">
-          <span style="font-size:14px; color:var(--muted); font-weight:300;">Consult-to-surgery rate (30%)</span>
-          <span style="font-size:14px; color:var(--text); font-weight:500;">2 to 11 per month</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; padding-top:4px;">
-          <span style="font-size:15px; color:var(--text); font-weight:500;">Surgical bookings / year</span>
-          <span style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--gold-lt);">24 to 132</span>
-        </div>
-        <div style="margin-top:8px; padding-top:12px; border-top:1px solid var(--border2);">
-          <div style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.7;">At a $12,000 average surgical fee, you break even on the entire year one investment with fewer than two booked patients from the site. Every patient after that is revenue you keep.</div>
-        </div>
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="b-name">Zeiderman</div>
+        <div class="b-sub">Plastic Surgery</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Procedures</h4>
+        <a href="#">Face &amp; Neck Lift</a>
+        <a href="#">Eyelid Surgery</a>
+        <a href="#">Breast Augmentation</a>
+        <a href="#">Breast Lift</a>
+        <a href="#">Mommy Makeover</a>
+      </div>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <a href="#surgeon">Dr. Zeiderman</a>
+        <a href="#gallery">Before &amp; After</a>
+        <a href="#experience">The Practice</a>
+        <a href="#contact">Book Now</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <p>1175 Trancas St, Napa</p>
+        <p>1001 Nut Tree Rd #130, Vacaville</p>
+        <a href="tel:7074483436">707.448.3436</a>
+        <a href="https://www.instagram.com/drmatthewzeiderman" target="_blank" rel="noopener">@drmatthewzeiderman</a>
       </div>
     </div>
-    <div style="background:rgba(42,138,122,0.06); border:1px solid rgba(42,138,122,0.25); padding:24px 26px;">
-      <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#3dbfaa; font-weight:600; margin-bottom:12px;">What a realistic conversion volume looks like</div>
-      <div style="display:flex; flex-direction:column; gap:10px;">
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(42,138,122,0.15); padding-bottom:8px;">
-          <span style="font-size:14px; color:rgba(240,235,227,0.6); font-weight:300;">Low end: 24 surgical patients</span>
-          <span style="font-size:14px; color:var(--text); font-weight:500;">$288,000</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(42,138,122,0.15); padding-bottom:8px;">
-          <span style="font-size:14px; color:rgba(240,235,227,0.6); font-weight:300;">Mid: 60 surgical patients</span>
-          <span style="font-size:14px; color:var(--text); font-weight:500;">$720,000</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; border-bottom:1px solid rgba(42,138,122,0.15); padding-bottom:8px;">
-          <span style="font-size:14px; color:rgba(240,235,227,0.6); font-weight:300;">Program cost year one</span>
-          <span style="font-size:14px; color:var(--text); font-weight:500;">$22,488</span>
-        </div>
-        <div style="display:flex; justify-content:space-between; padding-top:4px;">
-          <span style="font-size:15px; color:#3dbfaa; font-weight:500;">ROI at low end</span>
-          <span style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:#3dbfaa;">12.8x</span>
-        </div>
-        <div style="margin-top:8px; padding-top:12px; border-top:1px solid rgba(42,138,122,0.15);">
-          <div style="font-size:13px; color:rgba(240,235,227,0.6); font-weight:300; line-height:1.7;">At the conservative end, 24 surgical patients from the site at $12,000 average is <strong style="color:#3dbfaa;">$288,000 in revenue</strong> against a $22,488 program cost. These are patients who were already looking for you.</div>
-        </div>
-      </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Zeiderman Plastic Surgery. All rights reserved.</span>
+      <span><a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Accessibility</a></span>
     </div>
   </div>
+</footer>
 
-  <div class="callout" style="margin-top:3px;">
-    <div class="callout-bar red"></div>
-    <div class="callout-inner">
-      <div class="callout-label red">The Cost of a Late Start</div>
-      <p>Every month without a live site is a month that patients searching for you don't find you. The longer it goes, the longer it takes to establish search presence under your name. <strong>The sooner your site is live and building authority, the sooner that search presence is yours. And it only gets stronger over time.</strong></p>
-    </div>
-  </div>
-</div>
+<script>
+  // mobile drawer
+  var drawer=document.getElementById('drawer');
+  document.getElementById('openMenu').addEventListener('click',function(){drawer.classList.add('open')});
+  document.getElementById('closeMenu').addEventListener('click',function(){drawer.classList.remove('open')});
+  drawer.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){drawer.classList.remove('open')})});
 
-<!-- ══ SECTION 6 ADS ══ -->
-<div class="sec">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">06</span>
-      <div class="sec-eye">Optional: Paid Advertising</div>
-      <h2 class="sec-title">Accelerate with ads.<br><em>Capture patients while SEO builds.</em></h2>
-    </div>
-    <span class="sec-tag">Google & Meta Ads</span>
-  </div>
+  // scroll reveal
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}});
+  },{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 
-  <div class="grid-2" style="margin-bottom:3px;">
-    <div class="card">
-      <div class="card-accent"></div>
-      <span class="card-label">Google Ads</span>
-      <div class="card-heading">Capture Patients Searching Right Now.</div>
-      <p class="card-body" style="margin-bottom:16px;">When a Napa Valley patient searches for a breast augmentation surgeon or a mommy makeover, Google Ads put you at the top of results immediately. SEO builds authority over months. Ads can deliver patient inquiries from day one.</p>
-      <div style="border-top:1px solid var(--border2); padding-top:14px;">
-        <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:8px; font-weight:600;">Best for</div>
-        <p style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.7;">High-intent procedures with established search volume: breast augmentation, tummy tuck, mommy makeover, facelift, blepharoplasty. Patients who are already in research mode and ready to book a consult.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-accent amber"></div>
-      <span class="card-label" style="color:#d9963a;">Meta Ads (Instagram + Facebook)</span>
-      <div class="card-heading">Build Awareness. Drive Consults. Own the Feed.</div>
-      <p class="card-body" style="margin-bottom:16px;">Meta reaches patients earlier in the decision cycle, before they're actively searching. Before/after content, procedure education, and posts that show your practice and personality build familiarity and trust. When they do search, your name is the one they already recognize.</p>
-      <div style="border-top:1px solid var(--border2); padding-top:14px;">
-        <div style="font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:#d9963a; margin-bottom:8px; font-weight:600;">Best for</div>
-        <p style="font-size:13px; color:var(--muted); font-weight:300; line-height:1.7;">Non-surgical procedures, body contouring, and anything visual: injectables, breast augmentation, mommy makeover. Also effective for retargeting visitors who came to your site but haven't requested a consult yet.</p>
-      </div>
-    </div>
-  </div>
+  // consultation form (static preview: show inline thank-you, no send)
+  (function(){
+    var form=document.getElementById('consultForm');
+    var success=document.getElementById('formSuccess');
+    if(!form)return;
+    form.addEventListener('submit',function(e){
+      e.preventDefault(); // remove this line once a Formspree action is wired
+      var required=form.querySelectorAll('[required]');
+      var ok=true;
+      required.forEach(function(el){
+        if(!el.value.trim()){ok=false;el.style.borderColor='#a23b3b'}
+        else{el.style.borderColor=''}
+      });
+      if(!ok)return;
+      form.style.display='none';
+      success.classList.add('show');
+      success.scrollIntoView({behavior:'smooth',block:'center'});
+    });
+  })();
 
-  <div style="background:var(--bg-mid); border:1px solid var(--border2); overflow:hidden; margin-top:3px;">
-    <div style="background:var(--bg-card); padding:18px 24px; border-bottom:1px solid var(--border);">
-      <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:4px;">Azalea Ad Management Fee</div>
-      <div style="font-size:13px; color:var(--muted); font-weight:300;">Paid ads are managed separately from the monthly tier. Ad spend goes directly to Google and Meta. Azalea charges the greater of $500 or 18% of monthly ad spend.</div>
-    </div>
-    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--border2);" class="grid-3" style="overflow-x:auto;">
-      <div style="background:var(--bg-mid); padding:20px 22px;">
-        <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:8px;">Management Fee Structure</div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:28px; font-weight:800; color:var(--gold-lt); line-height:1.1; margin-bottom:6px;">Greater of<br>$500 or 18%</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300;">of monthly ad spend. The minimum kicks in when 18% falls below $500.</div>
-      </div>
-      <div style="background:var(--bg-mid); padding:20px 22px;">
-        <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:8px;">Example: $2,778+ budget</div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:var(--gold-lt); line-height:1; margin-bottom:6px;">18%</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300;">applies. At $3,000 spend: <strong style="color:var(--text);">$540 fee</strong>. Ad spend goes directly to Google/Meta.</div>
-      </div>
-      <div style="background:var(--bg-mid); padding:20px 22px;">
-        <div style="font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:8px;">Example: under $2,778 budget</div>
-        <div style="font-family:'Barlow Condensed',sans-serif; font-size:36px; font-weight:800; color:var(--gold-lt); line-height:1; margin-bottom:6px;">$500</div>
-        <div style="font-size:13px; color:var(--muted); font-weight:300;">minimum applies. At $1,500 spend: <strong style="color:var(--text);">$500 flat fee</strong>. Ad spend goes directly to Google/Meta.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout" style="margin-top:4px;">
-    <div class="callout-bar amber"></div>
-    <div class="callout-inner">
-      <div class="callout-label amber">The Honest Take on Ad Spend</div>
-      <p>A realistic starting budget for your market is <strong>$1,500 to $3,000 per month in ad spend</strong> to generate meaningful consult volume. A single booked breast augmentation or mommy makeover more than covers the monthly investment. Ads are optional, but they're often the fastest path to a booked calendar while SEO is still building.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ══ SECTION 7 NEXT STEPS ══ -->
-<div class="sec">
-  <div class="sec-hd">
-    <div>
-      <span class="sec-num">07</span>
-      <div class="sec-eye">Next Steps</div>
-      <h2 class="sec-title">What it takes to get<br><em>your site live and working.</em></h2>
-    </div>
-    <span class="sec-tag">Let's Go</span>
-  </div>
-
-  <div class="quote-block">
-    <div class="quote-text">Napa doesn't need another plastic surgery website. <em>It needs a practice worth finding, and a digital presence that makes sure the right patients find you when they're looking.</em></div>
-    <div class="quote-source">Azalea Digital Marketing · Zeiderman Plastic Surgery Proposal · April 2026</div>
-  </div>
-
-  <div class="grid-2" style="margin-top:20px;">
-    <div class="card">
-      <div class="card-accent"></div>
-      <span class="card-label">Step 1 Commit & Kick Off</span>
-      <div class="card-heading">Sign Off. Start Immediately.</div>
-      <p class="card-body" style="margin-bottom:18px;">Contract signed, kickoff call, your procedure priorities confirmed, content brief, design direction, build, review, and launch. Every month without a site is a month patients searching for you find someone else.</p>
-      <div style="border-top:1px solid var(--border2); padding-top:16px; margin-top:4px;">
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); margin-bottom:8px; font-weight:600;">What We Need From You</div>
-        <p style="font-size:14px; color:var(--muted); line-height:1.7; font-weight:300;">Your 10 priority procedures confirmed. Photography assets or a shoot plan. Any existing brand elements you want to carry over. That's it.</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-accent teal"></div>
-      <span class="card-label teal">Step 2 - Trust the Process</span>
-      <div class="card-heading">The Launch Gets You Live. The Build Gets You Found.</div>
-      <p class="card-body" style="margin-bottom:18px;">A great website on day one is the foundation. The authority build is what turns it into a practice-growing machine. Every page published, every review earned, and every ranking gained compounds from there.</p>
-      <div style="border-top:1px solid var(--border2); padding-top:16px; margin-top:4px;">
-        <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:#3dbfaa; margin-bottom:8px; font-weight:600;">What Keeps Working</div>
-        <p style="font-size:14px; color:var(--muted); line-height:1.7; font-weight:300;">Every page published this year keeps ranking two years from now. Every review you earn anchors your reputation for years. The investment is time-bound. The returns are not.</p>
-      </div>
-    </div>
-  </div>
-
-  <div style="background:var(--bg-mid); border:1px solid var(--border); padding:24px 28px; margin-top:3px; display:grid; grid-template-columns:1fr 1fr; gap:32px;" class="grid-2">
-    <div>
-      <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:10px;">Terms & Flexibility</div>
-      <p style="font-size:14px; color:var(--muted); line-height:1.78; font-weight:300;">All monthly plans are month-to-month after a 3-month minimum. You can upgrade your tier at any time and downgrade with 30 days notice. The setup fee is a one-time cost regardless of what happens after launch.</p>
-    </div>
-    <div>
-      <div style="font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold-lt); font-weight:600; margin-bottom:10px;">A Focused Roster</div>
-      <p style="font-size:14px; color:var(--muted); line-height:1.78; font-weight:300;">We keep a deliberately small client roster, all medical aesthetics and plastic surgery practices. That focus means we're never split across industries, and every strategy we build is specific to how aesthetic patients research, compare, and decide.</p>
-    </div>
-  </div>
-
-  <div class="callout" style="margin-top:8px;">
-    <div class="callout-bar red"></div>
-    <div class="callout-inner">
-      <div class="callout-label red">The Cost of a Late Start</div>
-      <p>Every month without a site is a month you're not in the search results when a Napa Valley patient is choosing a surgeon. <strong>The sooner your site is live and building authority, the sooner your name is the one that shows up, and the harder it becomes for anyone else to outrank it.</strong></p>
-    </div>
-  </div>
-</div>
-
-</div><!-- end doc -->
-
-<div class="doc-footer">
-  <span>Zeiderman Plastic Surgery - Digital Marketing Proposal</span>
-  <span>Azalea Digital Marketing · April 2026 · Confidential</span>
-</div>
-
+  (function(){
+    var slider=document.getElementById('baSlider');
+    var after=document.getElementById('baAfter');
+    var inner=document.getElementById('baAfterInner');
+    var handle=document.getElementById('baHandle');
+    var dragging=false;
+    function setPos(clientX){
+      var r=slider.getBoundingClientRect();
+      var x=Math.max(0,Math.min(clientX-r.left,r.width));
+      var pct=(x/r.width)*100;
+      after.style.width=pct+'%';
+      inner.style.width=r.width+'px';
+      handle.style.left=pct+'%';
+    }
+    function start(e){dragging=true;setPos((e.touches?e.touches[0]:e).clientX)}
+    function move(e){if(dragging)setPos((e.touches?e.touches[0]:e).clientX)}
+    function end(){dragging=false}
+    slider.addEventListener('mousedown',start);
+    window.addEventListener('mousemove',move);
+    window.addEventListener('mouseup',end);
+    slider.addEventListener('touchstart',start,{passive:true});
+    window.addEventListener('touchmove',move,{passive:true});
+    window.addEventListener('touchend',end);
+    // init inner width so the "After" label sits correctly
+    window.addEventListener('load',function(){inner.style.width=slider.getBoundingClientRect().width+'px'});
+    window.addEventListener('resize',function(){inner.style.width=slider.getBoundingClientRect().width+'px'});
+  })();
+</script>
 </body>
 </html>
