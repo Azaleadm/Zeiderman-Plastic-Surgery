@@ -521,14 +521,115 @@
     html{scroll-behavior:auto}
   }
   :focus-visible{outline:2px solid var(--navy-soft);outline-offset:3px}
+
+  /* ============================================================
+     PREVIEW SWITCHER + PROCEDURE PAGE (.pp)
+     ============================================================ */
+  .preview-switch{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);z-index:200;
+    display:flex;gap:4px;background:var(--navy);border:1px solid rgba(255,255,255,.15);
+    border-radius:100px;padding:5px;box-shadow:0 18px 44px -16px rgba(11,20,38,.6)}
+  .preview-switch button{font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;
+    letter-spacing:.05em;color:#c3cddd;background:transparent;border:0;cursor:pointer;
+    padding:10px 20px;border-radius:100px;transition:background .25s,color .25s;white-space:nowrap}
+  .preview-switch button.on{background:#fff;color:var(--navy)}
+  .page{display:none}
+  .page--active{display:block}
+
+  .pp-bc{background:var(--bg-alt);border-bottom:1px solid var(--line)}
+  .pp-bc .wrap{display:flex;align-items:center;gap:10px;padding:16px 32px;font-size:12.5px;
+    letter-spacing:.04em;color:var(--muted);flex-wrap:wrap}
+  .pp-bc a{color:var(--muted);cursor:pointer}.pp-bc a:hover{color:var(--navy)}
+  .pp-bc .sep{opacity:.45}.pp-bc .cur{color:var(--navy);font-weight:500}
+
+  .pp-hero{position:relative;min-height:62vh;display:flex;align-items:flex-end;overflow:hidden}
+  .pp-hero-media{position:absolute;inset:0;z-index:0;
+    background:linear-gradient(120deg,#25324a,#5c6d8a);background-size:cover;background-position:center}
+  .pp-hero-ov{position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(11,20,38,.48),rgba(11,20,38,.28) 40%,rgba(11,20,38,.86))}
+  .pp-hero-inner{position:relative;z-index:2;width:100%;padding-bottom:58px}
+  .pp-hero .eyebrow{color:#cdd7e8}.pp-hero .eyebrow::before,.pp-hero .eyebrow--both::after{background:#cdd7e8;opacity:.7}
+  .pp-hero h1{color:#fff;font-weight:300;font-size:clamp(38px,5.4vw,68px);margin:20px 0 18px;letter-spacing:-.015em}
+  .pp-hero p{color:#e5eaf3;font-size:clamp(16px,1.5vw,19px);max-width:52ch;font-weight:300;margin-bottom:30px}
+  .pp-hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+
+  .pp-lead{max-width:720px}
+  .pp-lead h2{font-size:clamp(28px,3.4vw,42px);margin-top:16px}
+  .pp-lead p{color:var(--muted);margin-top:18px;font-size:17px}
+
+  .pp-qa{background:var(--navy);color:#fff}
+  .pp-qa .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:50px;align-items:start}
+  .pp-qa .eyebrow{color:#cdd7e8}.pp-qa .eyebrow::before{background:#cdd7e8}
+  .pp-qa h2{color:#fff;font-size:clamp(26px,3vw,38px);margin-top:14px}
+  .pp-qa p{color:#c3cddd;font-size:17px;line-height:1.7}.pp-qa p+p{margin-top:16px}
+  @media(max-width:820px){.pp-qa .wrap{grid-template-columns:1fr;gap:22px}}
+
+  .pp-split .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .pp-split-img{aspect-ratio:4/5;border-radius:var(--radius);overflow:hidden;background:#cdd4de;
+    background-size:cover;background-position:center}
+  .pp-split-copy h2{font-size:clamp(26px,3vw,40px);margin:14px 0 20px}
+  .pp-split-copy p{color:var(--muted);margin-bottom:16px}
+  @media(max-width:860px){.pp-split .wrap{grid-template-columns:1fr;gap:34px}.pp-split-img{max-width:440px}}
+
+  .pp-checks{display:grid;grid-template-columns:1fr 1fr;gap:2px 40px;margin-top:34px}
+  .pp-check{display:flex;gap:14px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line)}
+  .pp-check svg{width:20px;height:20px;color:var(--navy);flex:0 0 auto;margin-top:2px}
+  .pp-check span{font-size:15px;color:var(--ink)}
+  @media(max-width:640px){.pp-checks{grid-template-columns:1fr}}
+
+  .pp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:48px;
+    background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  .pp-step{background:#fff;padding:36px 30px}
+  .pp-step-n{font-family:'Fraunces',serif;font-size:34px;color:var(--navy);font-weight:300;opacity:.4}
+  .pp-step h3{font-size:20px;margin:14px 0 10px}.pp-step p{font-size:14px;color:var(--muted)}
+  @media(max-width:820px){.pp-steps{grid-template-columns:1fr}}
+
+  .pp-timeline{margin-top:48px;border-left:2px solid var(--line);max-width:760px}
+  .pp-tl{display:grid;grid-template-columns:160px 1fr;gap:30px;padding:0 0 32px 34px;position:relative}
+  .pp-tl::before{content:"";position:absolute;left:-8px;top:3px;width:13px;height:13px;border-radius:50%;
+    background:var(--navy);border:3px solid var(--bg)}
+  .pp-tl-when{font-family:'Fraunces',serif;font-size:20px;color:var(--navy)}
+  .pp-tl-what{color:var(--muted);font-size:15px}
+  @media(max-width:600px){.pp-tl{grid-template-columns:1fr;gap:6px}}
+
+  .pp-faq{max-width:820px;margin:44px auto 0;border-top:1px solid var(--line)}
+  .pp-faq-item{border-bottom:1px solid var(--line)}
+  .pp-faq-q{width:100%;text-align:left;background:none;border:0;cursor:pointer;
+    display:flex;justify-content:space-between;align-items:center;gap:20px;
+    padding:24px 4px;font-family:'Fraunces',serif;font-size:19px;color:var(--navy)}
+  .pp-faq-q .ic{flex:0 0 auto;width:22px;height:22px;position:relative}
+  .pp-faq-q .ic::before,.pp-faq-q .ic::after{content:"";position:absolute;top:50%;left:50%;
+    transform:translate(-50%,-50%);background:var(--navy-soft)}
+  .pp-faq-q .ic::before{width:14px;height:1.5px}
+  .pp-faq-q .ic::after{width:1.5px;height:14px;transition:transform .3s var(--ease)}
+  .pp-faq-item.open .ic::after{transform:translate(-50%,-50%) scaleY(0)}
+  .pp-faq-a{max-height:0;overflow:hidden;transition:max-height .35s var(--ease)}
+  .pp-faq-a p{color:var(--muted);font-size:15px;padding:0 4px 24px;line-height:1.7}
+
+  .pp-rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+  .pp-rel{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    transition:background .3s var(--ease);cursor:pointer}
+  .pp-rel:hover{background:var(--navy)}
+  .pp-rel-img{aspect-ratio:16/10;background:#cdd4de;background-size:cover;background-position:center}
+  .pp-rel-b{padding:22px 24px}.pp-rel-b h3{font-size:19px;transition:color .3s}
+  .pp-rel-b .proc-more{margin-top:12px}
+  .pp-rel:hover h3,.pp-rel:hover .proc-more{color:#fff}
+  @media(max-width:820px){.pp-rel-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
+<!-- preview switcher (mockup aid) -->
+<div class="preview-switch" aria-label="Preview pages">
+  <button type="button" data-page="home" class="on">Home Page</button>
+  <button type="button" data-page="procedure">Breast Augmentation</button>
+</div>
+
+
 
 <!-- ============ HEADER / NAV ============ -->
 <header>
   <div class="wrap nav">
-    <a href="#" class="brand">
+    <a href="#" class="brand" data-go="home">
       <span class="b-name">Zeiderman</span>
       <span class="b-sub">Plastic Surgery</span>
     </a>
@@ -579,6 +680,7 @@
   </div>
 </div>
 
+<div id="page-home" class="page page--active">
 <!-- ============ HERO ============ -->
 <section class="hero">
   <!-- Swap this div for the <video> markup in the CSS comment when B-roll is ready -->
@@ -901,6 +1003,215 @@
     </div>
   </div>
 </footer>
+</div>
+
+<!-- ############ PROCEDURE PAGE: BREAST AUGMENTATION ############ -->
+<div id="page-procedure" class="page">
+
+  <nav class="pp-bc" aria-label="Breadcrumb">
+    <div class="wrap">
+      <a data-go="home">Home</a><span class="sep">/</span>
+      <a data-go="home">Procedures</a><span class="sep">/</span>
+      <a>Breast</a><span class="sep">/</span>
+      <span class="cur">Breast Augmentation</span>
+    </div>
+  </nav>
+
+  <section class="pp-hero">
+    <div class="pp-hero-media" data-img="https://images.pexels.com/photos/15079473/pexels-photo-15079473.jpeg?auto=compress&cs=tinysrgb&w=1600"></div>
+    <div class="pp-hero-ov"></div>
+    <div class="pp-hero-inner"><div class="wrap">
+      <span class="eyebrow eyebrow--both">Breast</span>
+      <h1>Breast Augmentation</h1>
+      <p>Naturally proportioned results, tailored to your anatomy and your aesthetic goals, in Napa and Vacaville.</p>
+      <div class="pp-hero-btns">
+        <a class="btn btn-solid-light" data-go="home">Book Consultation</a>
+        <a class="btn btn-ghost-light">View Gallery</a>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="block pp-qa">
+    <div class="wrap">
+      <div><span class="eyebrow">The quick answer</span><h2>What is breast augmentation?</h2></div>
+      <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.</p>
+        <p>Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block pp-split">
+    <div class="wrap">
+      <div class="pp-split-img" data-ph="Overview" data-img="https://images.pexels.com/photos/19284976/pexels-photo-19284976.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
+      <div class="pp-split-copy">
+        <span class="eyebrow">Overview</span>
+        <h2>Refined, personalized results</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+        <a class="btn btn-outline" data-go="home">Book a consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--bg-alt)">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Benefits</span><h2>Why patients choose it</h2></div>
+      <div class="pp-checks">
+        <div class="pp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span>Naturally proportioned enhancement</span></div>
+        <div class="pp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span>Implant options tailored to your frame</span></div>
+        <div class="pp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span>Restored balance and symmetry</span></div>
+        <div class="pp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span>Improved fit in clothing you love</span></div>
+        <div class="pp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span>Renewed comfort and confidence</span></div>
+        <div class="pp-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 6L9 17l-5-5"/></svg><span>Long-lasting, natural-feeling results</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="pp-lead"><span class="eyebrow">The process</span><h2>How it's done</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p></div>
+      <div class="pp-steps">
+        <div class="pp-step"><div class="pp-step-n">01</div><h3>Consultation</h3><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p></div>
+        <div class="pp-step"><div class="pp-step-n">02</div><h3>Your procedure</h3><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p></div>
+        <div class="pp-step"><div class="pp-step-n">03</div><h3>Recovery</h3><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block reviews">
+    <div class="wrap">
+      <div class="reviews-head"><span class="eyebrow eyebrow--both">Patient Reviews</span><h2>Breast augmentation <em>patients.</em></h2></div>
+      <div class="review-grid">
+        <div class="review-card"><div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div><p class="rc-body">Dr. Zeiderman listened carefully and helped me choose the right size for my frame. My results look completely natural.</p><div class="rc-foot"><div class="rc-name">A. K.</div><div class="rc-ctx">Breast Augmentation</div></div></div>
+        <div class="review-card"><div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div><p class="rc-body">The whole experience felt personal and unhurried. I finally feel balanced and comfortable in my clothes again.</p><div class="rc-foot"><div class="rc-name">S. R.</div><div class="rc-ctx">Breast Augmentation</div></div></div>
+        <div class="review-card"><div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div><p class="rc-body">From consultation to recovery, everything was clearly explained. I could not be happier with the outcome.</p><div class="rc-foot"><div class="rc-name">M. D.</div><div class="rc-ctx">Breast Augmentation</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--bg-alt)">
+    <div class="wrap">
+      <div class="proc-head">
+        <div class="section-head"><span class="eyebrow">Results</span><h2>Before &amp; After</h2></div>
+        <a class="btn btn-outline">View full gallery</a>
+      </div>
+      <div class="proc-grid">
+        <a class="proc-card"><div class="proc-thumb" data-ph="Before &amp; After"></div><div class="proc-body"><h3>Case 01</h3><p>Individual results vary. Shown with patient consent.</p></div></a>
+        <a class="proc-card"><div class="proc-thumb" data-ph="Before &amp; After"></div><div class="proc-body"><h3>Case 02</h3><p>Individual results vary. Shown with patient consent.</p></div></a>
+        <a class="proc-card"><div class="proc-thumb" data-ph="Before &amp; After"></div><div class="proc-body"><h3>Case 03</h3><p>Individual results vary. Shown with patient consent.</p></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block surgeon">
+    <div class="wrap">
+      <div class="surgeon-photo" data-ph="Dr. Matthew Zeiderman" data-img="https://www.napasolanoplasticsurgery.com/wp-content/uploads/2025/09/Dr.-Zeiderman-headshot-11.2024-large.jpg.webp" data-pos="center 22%"></div>
+      <div class="surgeon-copy">
+        <span class="eyebrow">Your surgeon</span>
+        <h2>Why Dr. Zeiderman</h2>
+        <div class="doc-title">Fellowship-Trained Plastic Surgeon</div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="cred-list">
+          <div class="cred"><span class="c-key">Training</span><span class="c-val">UC Davis &amp; USC</span></div>
+          <div class="cred"><span class="c-key">Focus</span><span class="c-val">Aesthetic breast surgery</span></div>
+          <div class="cred"><span class="c-key">Approach</span><span class="c-val">Natural, tailored to you</span></div>
+        </div>
+        <a class="btn btn-solid-light" data-go="home">Meet Dr. Zeiderman</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="pp-lead"><span class="eyebrow">Recovery</span><h2>What to expect</h2></div>
+      <div class="pp-timeline">
+        <div class="pp-tl"><div class="pp-tl-when">Days 1&ndash;3</div><div class="pp-tl-what">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</div></div>
+        <div class="pp-tl"><div class="pp-tl-when">Week 1</div><div class="pp-tl-what">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</div></div>
+        <div class="pp-tl"><div class="pp-tl-when">Weeks 2&ndash;6</div><div class="pp-tl-what">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</div></div>
+        <div class="pp-tl"><div class="pp-tl-when">6 weeks +</div><div class="pp-tl-what">Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--bg-alt)">
+    <div class="wrap">
+      <div class="section-head" style="max-width:640px;margin:0 auto;text-align:center">
+        <span class="eyebrow eyebrow--both" style="justify-content:center">FAQ</span>
+        <h2>Common questions</h2>
+      </div>
+      <div class="pp-faq">
+        <div class="pp-faq-item"><button class="pp-faq-q">How do I choose the right implant size?<span class="ic"></span></button><div class="pp-faq-a"><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></div>
+        <div class="pp-faq-item"><button class="pp-faq-q">How long does recovery take?<span class="ic"></span></button><div class="pp-faq-a"><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></div>
+        <div class="pp-faq-item"><button class="pp-faq-q">Will my results look natural?<span class="ic"></span></button><div class="pp-faq-a"><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></div>
+        <div class="pp-faq-item"><button class="pp-faq-q">Where are procedures performed?<span class="ic"></span></button><div class="pp-faq-a"><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="section-head"><span class="eyebrow">Explore</span><h2>Related procedures</h2></div>
+      <div class="pp-rel-grid">
+        <a class="pp-rel" data-go="procedure"><div class="pp-rel-img" data-ph="Breast Lift" data-img="https://images.pexels.com/photos/9535387/pexels-photo-9535387.jpeg?auto=compress&cs=tinysrgb&w=1400"></div><div class="pp-rel-b"><h3>Breast Lift</h3><span class="proc-more">Explore <span class="arw">&rarr;</span></span></div></a>
+        <a class="pp-rel" data-go="procedure"><div class="pp-rel-img" data-ph="Breast Reduction" data-img="https://images.pexels.com/photos/30253433/pexels-photo-30253433.jpeg?auto=compress&cs=tinysrgb&w=1400"></div><div class="pp-rel-b"><h3>Breast Reduction</h3><span class="proc-more">Explore <span class="arw">&rarr;</span></span></div></a>
+        <a class="pp-rel" data-go="procedure"><div class="pp-rel-img" data-ph="Mommy Makeover" data-img="https://images.pexels.com/photos/30747230/pexels-photo-30747230.jpeg?auto=compress&cs=tinysrgb&w=1400"></div><div class="pp-rel-b"><h3>Mommy Makeover</h3><span class="proc-more">Explore <span class="arw">&rarr;</span></span></div></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--navy);text-align:center">
+    <div class="wrap">
+      <span class="eyebrow eyebrow--both" style="justify-content:center;color:#cdd7e8">Ready when you are</span>
+      <h2 style="color:#fff;font-weight:300;font-size:clamp(30px,4vw,48px);margin:18px 0 26px">Begin your <em style="font-style:italic">consultation</em></h2>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-solid-light" data-go="home">Book Consultation</a>
+        <a class="btn btn-ghost-light" href="tel:7074483436">707.448.3436</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="b-name">Zeiderman</div>
+        <div class="b-sub">Plastic Surgery</div>
+        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Procedures</h4>
+        <a href="#">Face &amp; Neck Lift</a>
+        <a href="#">Eyelid Surgery</a>
+        <a href="#">Breast Augmentation</a>
+        <a href="#">Breast Lift</a>
+        <a href="#">Mommy Makeover</a>
+      </div>
+      <div class="foot-col">
+        <h4>Practice</h4>
+        <a href="#surgeon">About Dr. Zeiderman</a>
+        <a href="#">Before &amp; After</a>
+        <a href="#locations">Locations</a>
+        <a href="#contact">Book Consultation</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <p>1175 Trancas St, Napa</p>
+        <p>1001 Nut Tree Rd #130, Vacaville</p>
+        <a href="tel:7074483436">707.448.3436</a>
+        <a href="https://www.instagram.com/drmatthewzeiderman" target="_blank" rel="noopener">@drmatthewzeiderman</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Zeiderman Plastic Surgery. All rights reserved.</span>
+      <span>Photography shown is temporary placeholder imagery &nbsp;·&nbsp; <a href="#">Privacy Policy</a> &nbsp;·&nbsp; <a href="#">Accessibility</a></span>
+    </div>
+  </div>
+</footer>
+</div>
+
 
 <script>
   // mobile drawer
@@ -999,6 +1310,7 @@
     var t;
     window.addEventListener('load',function(){paint();loadReal();});
     window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(paint,180);});
+    window.__paintPh=function(){paint();loadReal();};
     paint();loadReal();
   })();
 
@@ -1030,6 +1342,33 @@
     window.addEventListener('load',function(){inner.style.width=slider.getBoundingClientRect().width+'px'});
     window.addEventListener('resize',function(){inner.style.width=slider.getBoundingClientRect().width+'px'});
   })();
+
+  // preview page switcher (mockup)
+  (function(){
+    var pages={home:document.getElementById('page-home'),procedure:document.getElementById('page-procedure')};
+    function show(name){
+      Object.keys(pages).forEach(function(k){if(pages[k])pages[k].classList.toggle('page--active',k===name);});
+      document.querySelectorAll('.preview-switch button').forEach(function(b){b.classList.toggle('on',b.dataset.page===name);});
+      var pg=pages[name];
+      if(pg)pg.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
+      if(window.__paintPh)window.__paintPh();
+      window.scrollTo({top:0});
+    }
+    document.querySelectorAll('.preview-switch button').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.page);});});
+    document.querySelectorAll('[data-go="home"]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();show('home');});});
+    document.querySelectorAll('[data-go="procedure"], .nav-dropdown a').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();show('procedure');});});
+    window.__showPage=show;
+  })();
+
+  // FAQ accordion
+  document.querySelectorAll('.pp-faq-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var item=q.closest('.pp-faq-item');
+      var a=item.querySelector('.pp-faq-a');
+      var open=item.classList.toggle('open');
+      a.style.maxHeight=open?a.scrollHeight+'px':'0';
+    });
+  });
 </script>
 </body>
 </html>
