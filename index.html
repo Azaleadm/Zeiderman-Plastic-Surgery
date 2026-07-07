@@ -260,7 +260,7 @@
   }
   .proc-thumb::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(158deg,rgba(22,36,63,.14) 0%,rgba(13,24,44,.30) 55%,rgba(11,20,38,.52) 100%);
+    background:linear-gradient(180deg,transparent 62%,rgba(11,20,38,.20));
   }
   .proc-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
   .proc-body h3{font-size:23px;margin-bottom:10px}
@@ -378,9 +378,7 @@
   .loc{background:var(--bg-alt)}
   .loc-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
   .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  .loc-map{height:200px;background:linear-gradient(135deg,#dbe1ea,#c4cddb);position:relative}
-  .loc-map::after{content:"Map";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-    font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(22,36,63,.35)}
+  .loc-map{display:block;width:100%;height:220px;border:0;background:#e3e7ee}
   .loc-body{padding:30px 32px 34px}
   .loc-body .l-city{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-soft);font-weight:500}
   .loc-body h3{font-size:25px;margin:8px 0 16px}
@@ -510,7 +508,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <!-- Swap this div for the <video> markup in the CSS comment when B-roll is ready -->
-  <div class="hero-media" data-img="https://images.pexels.com/photos/30747230/pexels-photo-30747230.jpeg?auto=compress&cs=tinysrgb&w=1600"></div>
+  <div class="hero-media" data-img="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1920"></div>
   <div class="hero-overlay"></div>
   <span class="hero-tag">Sample imagery</span>
   <div class="hero-inner">
@@ -610,7 +608,7 @@
         </div>
       </a>
       <a class="proc-card" href="#">
-        <div class="proc-thumb" data-ph="Abdominoplasty" data-img="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
+        <div class="proc-thumb" data-ph="Abdominoplasty" data-img="https://images.pexels.com/photos/30747230/pexels-photo-30747230.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
           <h3>Abdominoplasty</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
@@ -643,7 +641,7 @@
     </div>
     <div class="loc-grid">
       <div class="loc-card">
-        <div class="loc-map"></div>
+        <iframe class="loc-map" src="https://www.google.com/maps?q=1175+Trancas+St+Napa+CA+94558&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Napa office map"></iframe>
         <div class="loc-body">
           <span class="l-city">Napa</span>
           <h3>Napa Office</h3>
@@ -653,7 +651,7 @@
         </div>
       </div>
       <div class="loc-card">
-        <div class="loc-map"></div>
+        <iframe class="loc-map" src="https://www.google.com/maps?q=1001+Nut+Tree+Rd+Suite+130+Vacaville+CA+95687&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Vacaville office map"></iframe>
         <div class="loc-body">
           <span class="l-city">Vacaville</span>
           <h3>Vacaville Office</h3>
