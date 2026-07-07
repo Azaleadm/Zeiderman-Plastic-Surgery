@@ -260,7 +260,7 @@
   }
   .proc-thumb::after{
     content:"";position:absolute;inset:0;
-    background:linear-gradient(180deg,transparent 62%,rgba(11,20,38,.28));
+    background:linear-gradient(158deg,rgba(22,36,63,.14) 0%,rgba(13,24,44,.30) 55%,rgba(11,20,38,.52) 100%);
   }
   .proc-body{padding:26px 28px 30px;display:flex;flex-direction:column;flex:1}
   .proc-body h3{font-size:23px;margin-bottom:10px}
@@ -290,6 +290,8 @@
     font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.35);
   }
   .surgeon-photo{background-size:cover;background-position:center}
+  .surgeon-photo::before{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(160deg,rgba(22,36,63,.05),rgba(11,20,38,.20))}
   .pf-chip{
     position:absolute;top:14px;left:14px;z-index:2;
     font-size:10px;letter-spacing:.14em;text-transform:uppercase;
@@ -527,7 +529,7 @@
 <!-- ============ SURGEON ============ -->
 <section class="block surgeon reveal" id="surgeon">
   <div class="wrap">
-    <div class="surgeon-photo" data-ph="Dr. Matthew Zeiderman" data-img="https://images.pexels.com/photos/7108250/pexels-photo-7108250.jpeg?auto=compress&cs=tinysrgb&w=1400"><span class="pf-chip">Placeholder photo</span></div>
+    <div class="surgeon-photo" data-ph="Dr. Matthew Zeiderman" data-img="https://www.napasolanoplasticsurgery.com/wp-content/uploads/2025/09/Dr.-Zeiderman-headshot-11.2024-large.jpg.webp" data-pos="center 22%"></div>
     <div class="surgeon-copy">
       <span class="eyebrow">Meet Dr. Zeiderman</span>
       <h2>Dr. Matthew Zeiderman</h2>
@@ -876,7 +878,8 @@
           el.dataset.imgLoaded="1";
           el.style.backgroundImage="url(\""+src+"\")";
           el.style.backgroundSize="cover";
-          if(!el.classList.contains('hero-media'))el.style.backgroundPosition="center";
+          if(el.dataset.pos)el.style.backgroundPosition=el.dataset.pos;
+          else if(!el.classList.contains('hero-media'))el.style.backgroundPosition="center";
         };
         img.src=src;
       });
