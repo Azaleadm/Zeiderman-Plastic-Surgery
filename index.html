@@ -24,7 +24,7 @@
     --ink:#1b2333;
     --muted:#5b6577;
     --bg:#ffffff;
-    --bg-alt:#f7f4ee;      /* warm off-white */
+    --bg-alt:#efe8db;      /* warm off-white */
     --stone:#e9e3d8;       /* warm neutral */
     --line:#e6e2da;        /* hairline */
     --white:#ffffff;
@@ -140,6 +140,24 @@
   }
   .nav-links a:hover{color:var(--navy)}
   .nav-links a:hover::after{width:100%}
+  .nav-item{position:relative;display:flex;align-items:center}
+  .nav-item > a{display:inline-flex;align-items:center;gap:6px}
+  .nav-item .caret{font-size:9px;transition:transform .3s var(--ease);color:var(--navy-soft)}
+  .nav-item:hover .caret{transform:rotate(180deg)}
+  .nav-dropdown{
+    position:absolute;top:100%;left:-14px;min-width:210px;
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:8px 0;margin-top:12px;
+    box-shadow:0 18px 40px -22px rgba(11,20,38,.45);
+    opacity:0;visibility:hidden;transform:translateY(8px);
+    transition:opacity .25s var(--ease),transform .25s var(--ease),visibility .25s;
+    z-index:70;
+  }
+  .nav-dropdown::before{content:"";position:absolute;top:-12px;left:0;right:0;height:12px} /* hover bridge */
+  .nav-item:hover .nav-dropdown{opacity:1;visibility:visible;transform:none}
+  .nav-dropdown a{display:block;padding:10px 20px;font-size:14px;letter-spacing:.02em;color:var(--ink)}
+  .nav-dropdown a::after{display:none}
+  .nav-dropdown a:hover{background:var(--bg-alt);color:var(--navy)}
   .nav-cta{display:flex;align-items:center;gap:14px}
   .nav-cta .link-gallery{
     font-size:13px;letter-spacing:.08em;text-transform:uppercase;
@@ -422,7 +440,9 @@
   .loc{background:var(--bg-alt)}
   .loc-grid{margin-top:52px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
   .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-  .loc-map{display:block;width:100%;height:220px;border:0;background:#e3e7ee}
+  .loc-map{display:block;width:100%;height:220px;border:0;border-bottom:2px solid var(--navy);
+    background:#0d1a30;
+    filter:invert(92%) hue-rotate(180deg) saturate(.72) contrast(.9) brightness(.95);}
   .loc-body{padding:30px 32px 34px}
   .loc-body .l-city{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy-soft);font-weight:500}
   .loc-body h3{font-size:25px;margin:8px 0 16px}
@@ -514,7 +534,17 @@
     </a>
     <nav class="nav-links">
       <a href="#surgeon">About</a>
-      <a href="#procedures">Procedures</a>
+      <div class="nav-item">
+        <a href="#procedures">Procedures <span class="caret">&#9662;</span></a>
+        <div class="nav-dropdown">
+          <a href="#">Face</a>
+          <a href="#">Breast</a>
+          <a href="#">Body</a>
+          <a href="#">Nonsurgical</a>
+          <a href="#">MedSpa</a>
+          <a href="#">All Procedures</a>
+        </div>
+      </div>
       <a href="#">Before &amp; After</a>
       <a href="#locations">Locations</a>
     </nav>
@@ -568,21 +598,13 @@
   </div>
 </section>
 
-<!-- ============ SOCIETY / AFFILIATIONS ============ -->
-<div class="society" aria-label="Affiliations and training">
-  <div class="society-track">
-    <span class="society-item">American Society of Plastic Surgeons</span>
-    <span class="society-item">The Aesthetic Society</span>
-    <span class="society-item">American Board of Plastic Surgery</span>
-    <span class="society-item">American College of Surgeons</span>
-    <span class="society-item">UC Davis Health</span>
-    <span class="society-item">Keck Medicine of USC</span>
-    <span class="society-item" aria-hidden="true">American Society of Plastic Surgeons</span>
-    <span class="society-item" aria-hidden="true">The Aesthetic Society</span>
-    <span class="society-item" aria-hidden="true">American Board of Plastic Surgery</span>
-    <span class="society-item" aria-hidden="true">American College of Surgeons</span>
-    <span class="society-item" aria-hidden="true">UC Davis Health</span>
-    <span class="society-item" aria-hidden="true">Keck Medicine of USC</span>
+<!-- ============ STAT BAR ============ -->
+<div class="trust">
+  <div class="wrap">
+    <div class="trust-item"><div class="t-num">1,000+</div><div class="t-lab">Procedures Performed</div></div>
+    <div class="trust-item"><div class="t-num">2</div><div class="t-lab">Office Locations</div></div>
+    <div class="trust-item"><div class="t-num">24/7</div><div class="t-lab">Post-Op Access</div></div>
+    <div class="trust-item"><div class="t-num">100%</div><div class="t-lab">Personalized Care</div></div>
   </div>
 </div>
 
@@ -605,6 +627,24 @@
     </div>
   </div>
 </section>
+
+<!-- ============ SOCIETY / AFFILIATIONS ============ -->
+<div class="society" aria-label="Affiliations and training">
+  <div class="society-track">
+    <span class="society-item">American Society of Plastic Surgeons</span>
+    <span class="society-item">The Aesthetic Society</span>
+    <span class="society-item">American Board of Plastic Surgery</span>
+    <span class="society-item">American College of Surgeons</span>
+    <span class="society-item">UC Davis Health</span>
+    <span class="society-item">Keck Medicine of USC</span>
+    <span class="society-item" aria-hidden="true">American Society of Plastic Surgeons</span>
+    <span class="society-item" aria-hidden="true">The Aesthetic Society</span>
+    <span class="society-item" aria-hidden="true">American Board of Plastic Surgery</span>
+    <span class="society-item" aria-hidden="true">American College of Surgeons</span>
+    <span class="society-item" aria-hidden="true">UC Davis Health</span>
+    <span class="society-item" aria-hidden="true">Keck Medicine of USC</span>
+  </div>
+</div>
 
 <!-- ============ PROCEDURES ============ -->
 <section class="block proc reveal" id="procedures">
