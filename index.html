@@ -663,6 +663,181 @@
   .ba-aside p{color:var(--muted);margin-bottom:26px;font-size:15px}
   @media(max-width:880px){.ba-layout{grid-template-columns:1fr;gap:34px}}
 
+
+  /* ============================================================
+     MOBILE (<=768px)  |  SSK carousel pattern + layout fixes
+     ============================================================ */
+  @media (max-width:768px){
+
+    html,body{overflow-x:hidden}
+    .wrap{padding:0 20px}
+    section.block{padding:64px 0}
+    /* grid/flex children default to min-width:auto, which makes nested
+       carousels expand instead of scroll. Force them to shrink. */
+    .consult-grid > *,.consult-copy,.surgeon .wrap > *,.pp-qa .wrap > *,
+    .pp-split .wrap > *,.ba-layout > *{min-width:0}
+
+    /* ---- SSK-style swipe carousels ---- */
+    .m-carousel{
+      display:flex !important;
+      grid-template-columns:unset !important;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      gap:12px !important;
+      margin:0 -20px 0 !important;
+      padding:0 20px !important;
+      border:0 !important;
+      background:transparent !important;
+      border-radius:0 !important;
+    }
+    .m-carousel::-webkit-scrollbar{display:none}
+    .m-carousel > *{
+      flex:0 0 82vw;
+      min-width:82vw;
+      scroll-snap-align:center;
+      border-radius:4px;
+      border:1px solid var(--line);
+    }
+    /* dark-section carousels get a light hairline instead */
+    .reviews .m-carousel > *,
+    .consult .m-carousel > *{border:1px solid rgba(255,255,255,.10)}
+    .reviews-stats.m-carousel > *{flex:0 0 46vw;min-width:46vw;padding:24px 14px}
+    .pp-steps.m-carousel > *{background:#fff}
+
+    /* dots */
+    .m-dots{display:flex;justify-content:center;gap:7px;padding-top:18px}
+    .m-dots .m-dot{width:6px;height:6px;border-radius:50%;background:rgba(22,36,63,.20);
+      transition:background .2s,transform .2s;cursor:pointer;border:0;padding:0}
+    .m-dots .m-dot.active{background:var(--navy);transform:scale(1.35)}
+    .reviews .m-dots .m-dot,.consult .m-dots .m-dot{background:rgba(255,255,255,.22)}
+    .reviews .m-dots .m-dot.active,.consult .m-dots .m-dot.active{background:#fff}
+
+    /* card hover states don't exist on touch: keep cards legible */
+    .proc-card:hover{background:#fff}
+    .proc-card:hover .proc-body h3{color:var(--navy)}
+    .proc-card:hover .proc-body p{color:var(--muted)}
+    .proc-card:hover .proc-more{color:var(--navy)}
+    .proc-card--all,.proc-card--all:hover{background:var(--navy)}
+    .proc-card--all:hover h3{color:#fff}
+    .pp-rel:hover{background:#fff}
+    .pp-rel:hover h3,.pp-rel:hover .proc-more{color:var(--navy)}
+
+    /* ---- header / nav ---- */
+    .nav{height:64px}
+    .brand .b-name{font-size:17px}
+    .brand .b-sub{font-size:9px;letter-spacing:.22em}
+    .nav-cta .btn{padding:10px 14px;font-size:11px;letter-spacing:.06em}
+    .nav-phone{display:none}
+    .drawer-links a{font-size:24px;padding:10px 0}
+    .drawer{padding:22px 20px}
+
+    /* ---- hero ---- */
+    .hero{min-height:82vh}
+    .hero-inner{padding-bottom:44px}
+    .hero h1{font-size:clamp(32px,9vw,44px);max-width:none;margin:16px 0 14px}
+    .hero p.lede{font-size:15px;margin-bottom:26px}
+    .hero-actions{flex-direction:column;align-items:stretch;gap:10px}
+    .hero-actions .btn{width:100%}
+    .hero-tag{display:none}
+
+    /* ---- stat bar ---- */
+    .trust .wrap{grid-template-columns:1fr 1fr;gap:26px 0;padding:34px 20px}
+    .trust-item{padding:0 12px;border-left:1px solid var(--line)}
+    .trust-item:nth-child(odd){border-left:0;padding-left:0}
+    .trust-item .t-num{font-size:30px}
+    .trust-item .t-lab{font-size:11px}
+
+    /* ---- society scroller ---- */
+    .society{padding:18px 0}
+    .society-item{font-size:11px;padding:0 26px;letter-spacing:.10em}
+    .society-track{animation-duration:30s}
+
+    /* ---- surgeon / doctor ---- */
+    .surgeon .wrap{grid-template-columns:1fr;gap:28px}
+    .surgeon-photo{max-width:none;aspect-ratio:3/4}
+    .surgeon-copy h2{font-size:30px;margin:12px 0 16px}
+    .doc-title{margin:-8px 0 18px;font-size:11px}
+    .cred .c-key{min-width:110px;font-size:13px}
+    .cred .c-val{font-size:13px}
+    .surgeon-copy .btn{width:100%}
+
+    /* ---- procedures ---- */
+    .proc-head{flex-direction:column;align-items:flex-start;gap:16px}
+    .proc-head .btn{width:100%}
+    .proc-grid{margin-top:32px !important}
+    .proc-body{padding:20px 22px 24px}
+    .proc-body h3{font-size:20px}
+    .proc-all-inner{padding:30px 24px}
+
+    /* ---- reviews ---- */
+    .reviews-head{margin-bottom:28px}
+    .reviews-head h2{font-size:30px}
+    .reviews-stats{margin-bottom:16px}
+    .rs-num{font-size:26px}
+    .rs-lab{font-size:10px;letter-spacing:.10em;margin-top:8px}
+    .review-card{padding:26px 22px}
+    .rc-body{font-size:16px}
+    .reviews-cta{flex-direction:column;margin-top:26px}
+    .reviews-cta .btn{width:100%}
+
+    /* ---- before & after slider ---- */
+    .ba-top{flex-direction:column;align-items:flex-start;gap:10px}
+    .ba-layout{grid-template-columns:1fr;gap:26px}
+    .ba-slider{aspect-ratio:4/3}
+    .ba-aside .btn{width:100%}
+
+    /* ---- experience ---- */
+    .exp-grid{margin-top:32px !important}
+    .exp-item{padding:28px 24px 32px}
+
+    /* ---- contact + locations ---- */
+    .consult{padding:64px 0}
+    .consult-grid{grid-template-columns:1fr;gap:32px}
+    .consult-copy h2{font-size:32px;max-width:none}
+    .loc-inset{margin:26px 0 18px}
+    .loc-mini .loc-map{height:120px}
+    .form-card{padding:26px 22px 28px}
+    .field-row{grid-template-columns:1fr;gap:0}
+    .field input,.field select,.field textarea{font-size:16px} /* prevents iOS zoom-on-focus */
+
+    /* ---- footer ---- */
+    .foot-grid{grid-template-columns:1fr;gap:28px;padding-bottom:32px}
+    .foot-bottom{flex-direction:column;align-items:flex-start;gap:8px}
+
+    /* ---- procedure page ---- */
+    .pp-bc .wrap{padding:14px 20px;font-size:11.5px}
+    .pp-hero{min-height:56vh}
+    .pp-hero-inner{padding-bottom:40px}
+    .pp-hero h1{font-size:clamp(30px,8.5vw,42px)}
+    .pp-hero p{font-size:15px}
+    .pp-hero-btns{flex-direction:column;align-items:stretch;width:100%}
+    .pp-hero-btns .btn{width:100%}
+    .pp-qa .wrap{grid-template-columns:1fr;gap:18px}
+    .pp-qa p{font-size:15.5px}
+    .pp-split .wrap{grid-template-columns:1fr;gap:26px}
+    .pp-split-img{max-width:none;aspect-ratio:3/4}
+    .pp-split-copy .btn{width:100%}
+    .pp-checks{grid-template-columns:1fr;margin-top:24px}
+    .pp-steps{margin-top:32px !important}
+    .pp-timeline{margin-top:32px;padding-left:0}
+    .pp-tl{grid-template-columns:1fr;gap:4px;padding:0 0 24px 24px}
+    .pp-faq{margin-top:28px}
+    .pp-faq-q{font-size:16px;padding:20px 2px}
+    .pp-rel-grid{margin-top:32px !important}
+
+    /* ---- preview switcher: don't cover content ---- */
+    .preview-switch{bottom:14px;padding:4px}
+    .preview-switch button{padding:9px 14px;font-size:11px}
+    body{padding-bottom:70px}
+  }
+
+  @media (max-width:400px){
+    .m-carousel > *{flex:0 0 86vw;min-width:86vw}
+    .reviews-stats.m-carousel > *{flex:0 0 60vw;min-width:60vw}
+  }
+
 </style>
 </head>
 <body>
@@ -813,7 +988,7 @@
       <a href="#" class="btn btn-outline">View all procedures</a>
     </div>
 
-    <div class="proc-grid">
+    <div class="proc-grid m-carousel">
       <a class="proc-card" href="#">
         <div class="proc-thumb" data-ph="Face" data-img="https://images.pexels.com/photos/9535387/pexels-photo-9535387.jpeg?auto=compress&cs=tinysrgb&w=1400"></div>
         <div class="proc-body">
@@ -872,13 +1047,13 @@
       <span class="eyebrow eyebrow--both">Patient Reviews</span>
       <h2>What patients <em>actually say.</em></h2>
     </div>
-    <div class="reviews-stats">
+    <div class="reviews-stats m-carousel">
       <div class="rstat"><div class="rs-num">5.0</div><div class="rs-lab">Average Rating</div></div>
       <div class="rstat"><div class="rs-num">150+</div><div class="rs-lab">Verified Reviews</div></div>
       <div class="rstat"><div class="rs-num">99%</div><div class="rs-lab">Would Recommend</div></div>
       <div class="rstat"><div class="rs-num">40+</div><div class="rs-lab">Published Studies</div></div>
     </div>
-    <div class="review-grid">
+    <div class="review-grid m-carousel">
       <div class="review-card">
         <div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div>
         <p class="rc-body">Dr. Zeiderman took the time to understand exactly what I wanted. Ten days out and I look like myself, only refreshed.</p>
@@ -939,7 +1114,7 @@
       <h2>Boutique care, start to finish</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p>
     </div>
-    <div class="exp-grid">
+    <div class="exp-grid m-carousel">
       <div class="exp-item">
         <svg class="e-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-4.35-9.5-9C.8 8.5 3 4.5 7 4.5c2 0 3.5 1.2 5 3 1.5-1.8 3-3 5-3 4 0 6.2 4 4.5 7.5C19 16.65 12 21 12 21z"/></svg>
         <h3>Personal consultations</h3>
@@ -975,7 +1150,7 @@
       <h2>Let's get <em>started</em></h2>
       <p>Two Napa Valley locations, one team. Request a consultation and we'll be in touch shortly.</p>
 
-      <div class="loc-inset">
+      <div class="loc-inset m-carousel">
         <div class="loc-mini">
           <iframe class="loc-map" src="https://www.google.com/maps?q=1175+Trancas+St+Napa+CA+94558&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Napa office map"></iframe>
           <div class="loc-mini-b">
@@ -1174,7 +1349,7 @@
     <div class="wrap">
       <div class="pp-lead"><span class="eyebrow">The process</span><h2>How it's done</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor incididunt.</p></div>
-      <div class="pp-steps">
+      <div class="pp-steps m-carousel">
         <div class="pp-step"><div class="pp-step-n">01</div><h3>Consultation</h3><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p></div>
         <div class="pp-step"><div class="pp-step-n">02</div><h3>Your procedure</h3><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p></div>
         <div class="pp-step"><div class="pp-step-n">03</div><h3>Recovery</h3><p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor.</p></div>
@@ -1185,7 +1360,7 @@
   <section class="block reviews">
     <div class="wrap">
       <div class="reviews-head"><span class="eyebrow eyebrow--both">Patient Reviews</span><h2>Breast augmentation <em>patients.</em></h2></div>
-      <div class="review-grid">
+      <div class="review-grid m-carousel">
         <div class="review-card"><div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div><p class="rc-body">Dr. Zeiderman listened carefully and helped me choose the right size for my frame. My results look completely natural.</p><div class="rc-foot"><div class="rc-name">A. K.</div><div class="rc-ctx">Breast Augmentation</div></div></div>
         <div class="review-card"><div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div><p class="rc-body">The whole experience felt personal and unhurried. I finally feel balanced and comfortable in my clothes again.</p><div class="rc-foot"><div class="rc-name">S. R.</div><div class="rc-ctx">Breast Augmentation</div></div></div>
         <div class="review-card"><div class="rc-top"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rc-quote">&rdquo;</span></div><p class="rc-body">From consultation to recovery, everything was clearly explained. I could not be happier with the outcome.</p><div class="rc-foot"><div class="rc-name">M. D.</div><div class="rc-ctx">Breast Augmentation</div></div></div>
@@ -1199,7 +1374,7 @@
         <div class="section-head"><span class="eyebrow">Results</span><h2>Before &amp; After</h2></div>
         <a class="btn btn-outline">View full gallery</a>
       </div>
-      <div class="proc-grid">
+      <div class="proc-grid m-carousel">
         <a class="proc-card"><div class="proc-thumb" data-ph="Before &amp; After"></div><div class="proc-body"><h3>Case 01</h3><p>Individual results vary. Shown with patient consent.</p></div></a>
         <a class="proc-card"><div class="proc-thumb" data-ph="Before &amp; After"></div><div class="proc-body"><h3>Case 02</h3><p>Individual results vary. Shown with patient consent.</p></div></a>
         <a class="proc-card"><div class="proc-thumb" data-ph="Before &amp; After"></div><div class="proc-body"><h3>Case 03</h3><p>Individual results vary. Shown with patient consent.</p></div></a>
@@ -1255,7 +1430,7 @@
   <section class="block">
     <div class="wrap">
       <div class="section-head"><span class="eyebrow">Explore</span><h2>Related procedures</h2></div>
-      <div class="pp-rel-grid">
+      <div class="pp-rel-grid m-carousel">
         <a class="pp-rel" data-go="procedure"><div class="pp-rel-img" data-ph="Breast Lift" data-img="https://images.pexels.com/photos/9535387/pexels-photo-9535387.jpeg?auto=compress&cs=tinysrgb&w=1400"></div><div class="pp-rel-b"><h3>Breast Lift</h3><span class="proc-more">Explore <span class="arw">&rarr;</span></span></div></a>
         <a class="pp-rel" data-go="procedure"><div class="pp-rel-img" data-ph="Breast Reduction" data-img="https://images.pexels.com/photos/30253433/pexels-photo-30253433.jpeg?auto=compress&cs=tinysrgb&w=1400"></div><div class="pp-rel-b"><h3>Breast Reduction</h3><span class="proc-more">Explore <span class="arw">&rarr;</span></span></div></a>
         <a class="pp-rel" data-go="procedure"><div class="pp-rel-img" data-ph="Mommy Makeover" data-img="https://images.pexels.com/photos/30747230/pexels-photo-30747230.jpeg?auto=compress&cs=tinysrgb&w=1400"></div><div class="pp-rel-b"><h3>Mommy Makeover</h3><span class="proc-more">Explore <span class="arw">&rarr;</span></span></div></a>
@@ -1454,6 +1629,7 @@
       var pg=pages[name];
       if(pg)pg.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');});
       if(window.__paintPh)window.__paintPh();
+      if(window.__rebuildDots)window.__rebuildDots();
       window.scrollTo({top:0});
     }
     document.querySelectorAll('.preview-switch button').forEach(function(b){b.addEventListener('click',function(){show(b.dataset.page);});});
@@ -1508,6 +1684,70 @@
       a.style.maxHeight=open?a.scrollHeight+'px':'0';
     });
   });
+
+  // mobile carousels: build + sync dots (SSK pattern)
+  (function(){
+    var MQ=window.matchMedia('(max-width:768px)');
+    var tracks=[].slice.call(document.querySelectorAll('.m-carousel'));
+
+    function dotsFor(track){
+      var d=track.nextElementSibling;
+      if(d&&d.classList.contains('m-dots'))return d;
+      d=document.createElement('div');
+      d.className='m-dots';
+      track.parentNode.insertBefore(d,track.nextSibling);
+      return d;
+    }
+    function cards(track){
+      return [].slice.call(track.children).filter(function(c){
+        return c.offsetParent!==null || track.offsetParent!==null;
+      });
+    }
+    function centerOffset(track,card){
+      return card.offsetLeft-((track.clientWidth-card.clientWidth)/2);
+    }
+    function sync(track,dotsEl){
+      var cs=cards(track),dots=dotsEl.querySelectorAll('.m-dot');
+      if(!cs.length||!dots.length)return;
+      var best=0,bd=Infinity;
+      cs.forEach(function(c,i){
+        var diff=Math.abs(track.scrollLeft-centerOffset(track,c));
+        if(diff<bd){bd=diff;best=i;}
+      });
+      dots.forEach(function(d,i){d.classList.toggle('active',i===best);});
+    }
+    function build(track){
+      var dotsEl=dotsFor(track);
+      var cs=cards(track);
+      dotsEl.innerHTML='';
+      if(!MQ.matches||cs.length<2){dotsEl.style.display='none';return;}
+      dotsEl.style.display='flex';
+      cs.forEach(function(c,i){
+        var b=document.createElement('button');
+        b.type='button';
+        b.className='m-dot'+(i===0?' active':'');
+        b.setAttribute('aria-label','Go to item '+(i+1));
+        b.addEventListener('click',function(){
+          track.scrollTo({left:centerOffset(track,c),behavior:'smooth'});
+        });
+        dotsEl.appendChild(b);
+      });
+      sync(track,dotsEl);
+    }
+    tracks.forEach(function(t){
+      build(t);
+      t.addEventListener('scroll',function(){
+        var d=t.nextElementSibling;
+        if(d&&d.classList.contains('m-dots'))sync(t,d);
+      },{passive:true});
+    });
+    var rt;
+    window.addEventListener('resize',function(){
+      clearTimeout(rt);
+      rt=setTimeout(function(){tracks.forEach(build);},180);
+    });
+    window.__rebuildDots=function(){tracks.forEach(build);};
+  })();
 </script>
 </body>
 </html>
