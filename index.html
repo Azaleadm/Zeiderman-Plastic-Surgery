@@ -614,7 +614,28 @@
   @media(max-width:820px){.pp-rel-grid{grid-template-columns:1fr}}
 
 
-  /* ---------------- home before & after slider ---------------- */
+  /* ---------------- consolidated contact: parallax + location inset ---------------- */
+  .consult{position:relative;overflow:hidden}
+  .consult-parallax{position:absolute;inset:-12% 0;z-index:0;
+    background-size:cover;background-position:center;
+    will-change:transform;opacity:.16;filter:grayscale(35%)}
+  .consult-veil{position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,rgba(11,20,38,.90),rgba(22,36,63,.94))}
+  .consult .wrap{position:relative;z-index:2}
+
+  .loc-inset{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:32px 0 22px}
+  .loc-mini{background:#0d1a30;border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);
+    overflow:hidden;display:flex;flex-direction:column}
+  .loc-mini .loc-map{height:130px}
+  .loc-mini-b{padding:16px 18px 18px}
+  .loc-mini-b .l-city{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:#8fa0bd;font-weight:500;display:block;margin-bottom:7px}
+  .loc-mini-b p{color:#e7ecf4;font-size:13.5px;line-height:1.5;margin-bottom:8px}
+  .loc-mini-b .l-phone{color:#fff;font-size:13.5px;font-weight:500}
+  .loc-serve{color:#8fa0bd;font-size:13.5px}
+  .loc-serve strong{color:#e7ecf4;font-weight:500}
+  @media(max-width:520px){.loc-inset{grid-template-columns:1fr}}
+
   .ba{background:var(--white)}
   .ba h2{font-size:clamp(30px,3.6vw,46px);margin-top:18px}
   .ba-top{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:48px}
@@ -673,7 +694,7 @@
         </div>
       </div>
       <a href="#">Before &amp; After</a>
-      <a href="#locations">Locations</a>
+      <a href="#contact">Locations</a>
     </nav>
     <div class="nav-cta">
       <a href="tel:7074483436" class="nav-phone">707.448.3436</a>
@@ -698,7 +719,7 @@
     <a href="#surgeon">About</a>
     <a href="#procedures">Procedures</a>
     <a href="#">Before &amp; After</a>
-    <a href="#locations">Locations</a>
+    <a href="#contact">Locations</a>
   </nav>
   <div class="drawer-actions">
     <a href="#contact" class="btn btn-solid-light">Book Consultation</a>
@@ -710,7 +731,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <!-- Swap this div for the <video> markup in the CSS comment when B-roll is ready -->
-  <div class="hero-media" data-img="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1920"></div>
+  <div class="hero-media" data-img="https://images.pexels.com/photos/7108250/pexels-photo-7108250.jpeg?auto=compress&cs=tinysrgb&w=1920" data-pos="center 30%"></div>
   <div class="hero-overlay"></div>
   <span class="hero-tag">Sample imagery</span>
   <div class="hero-inner">
@@ -936,52 +957,37 @@
   </div>
 </section>
 
-<!-- ============ LOCATIONS ============ -->
-<section class="block loc reveal" id="locations">
-  <div class="wrap">
-    <div class="section-head" style="max-width:560px">
-      <span class="eyebrow">Find us</span>
-      <h2>Two locations across Napa and Solano</h2>
-    </div>
-    <div class="loc-grid">
-      <div class="loc-card">
-        <iframe class="loc-map" src="https://www.google.com/maps?q=1175+Trancas+St+Napa+CA+94558&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Napa office map"></iframe>
-        <div class="loc-body">
-          <span class="l-city">Napa</span>
-          <h3>Napa Office</h3>
-          <p>1175 Trancas Street</p>
-          <p>Napa, CA 94558</p>
-          <a href="tel:7074483436" class="l-phone">707.448.3436</a>
-        </div>
-      </div>
-      <div class="loc-card">
-        <iframe class="loc-map" src="https://www.google.com/maps?q=1001+Nut+Tree+Rd+Suite+130+Vacaville+CA+95687&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Vacaville office map"></iframe>
-        <div class="loc-body">
-          <span class="l-city">Vacaville</span>
-          <h3>Vacaville Office</h3>
-          <p>1001 Nut Tree Road, Suite 130</p>
-          <p>Vacaville, CA 95687</p>
-          <a href="tel:7074483436" class="l-phone">707.448.3436</a>
-        </div>
-      </div>
-    </div>
-    <p class="loc-serve">Proudly caring for patients in <strong>Napa, Vacaville, Davis, Sacramento, Walnut Creek, and Vallejo</strong>.</p>
-  </div>
-</section>
-
-<!-- ============ CONSULTATION FORM ============ -->
+<!-- ============ CONTACT + LOCATIONS ============ -->
 <section class="consult reveal" id="contact">
+  <div class="consult-parallax" data-parallax data-img="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1920"></div>
+  <div class="consult-veil"></div>
   <div class="wrap consult-grid">
+
     <div class="consult-copy">
       <span class="eyebrow">Get in touch</span>
       <h2>Let's get <em>started</em></h2>
-      <p>Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-      <div class="consult-detail">
-        <div class="cd"><span class="cd-key">Call</span><span class="cd-val"><a href="tel:7074483436">707.448.3436</a></span></div>
-        <div class="cd"><span class="cd-key">Napa</span><span class="cd-val">1175 Trancas St, Napa, CA 94558</span></div>
-        <div class="cd"><span class="cd-key">Vacaville</span><span class="cd-val">1001 Nut Tree Rd #130, Vacaville, CA 95687</span></div>
-        <div class="cd"><span class="cd-key">Social</span><span class="cd-val"><a href="https://www.instagram.com/drmatthewzeiderman" target="_blank" rel="noopener">@drmatthewzeiderman</a></span></div>
+      <p>Two Napa Valley locations, one team. Request a consultation and we'll be in touch shortly.</p>
+
+      <div class="loc-inset">
+        <div class="loc-mini">
+          <iframe class="loc-map" src="https://www.google.com/maps?q=1175+Trancas+St+Napa+CA+94558&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Napa office map"></iframe>
+          <div class="loc-mini-b">
+            <span class="l-city">Napa</span>
+            <p>1175 Trancas St<br>Napa, CA 94558</p>
+            <a href="tel:7074483436" class="l-phone">707.448.3436</a>
+          </div>
+        </div>
+        <div class="loc-mini">
+          <iframe class="loc-map" src="https://www.google.com/maps?q=1001+Nut+Tree+Rd+Suite+130+Vacaville+CA+95687&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Vacaville office map"></iframe>
+          <div class="loc-mini-b">
+            <span class="l-city">Vacaville</span>
+            <p>1001 Nut Tree Rd #130<br>Vacaville, CA 95687</p>
+            <a href="tel:7074483436" class="l-phone">707.448.3436</a>
+          </div>
+        </div>
       </div>
+
+      <p class="loc-serve">Serving <strong>Napa, Vacaville, Davis, Sacramento, Walnut Creek</strong> and <strong>Vallejo</strong>.</p>
     </div>
 
     <div class="form-card">
@@ -1050,6 +1056,7 @@
         <p>Your request has been received. A member of the Zeiderman Plastic Surgery team will reach out shortly.</p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1074,7 +1081,7 @@
         <h4>Practice</h4>
         <a href="#surgeon">About Dr. Zeiderman</a>
         <a href="#">Before &amp; After</a>
-        <a href="#locations">Locations</a>
+        <a href="#contact">Locations</a>
         <a href="#contact">Book Consultation</a>
       </div>
       <div class="foot-col">
@@ -1281,7 +1288,7 @@
         <h4>Practice</h4>
         <a href="#surgeon">About Dr. Zeiderman</a>
         <a href="#">Before &amp; After</a>
-        <a href="#locations">Locations</a>
+        <a href="#contact">Locations</a>
         <a href="#contact">Book Consultation</a>
       </div>
       <div class="foot-col">
@@ -1446,6 +1453,28 @@
     document.querySelectorAll('[data-go="home"]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();show('home');});});
     document.querySelectorAll('[data-go="procedure"], .nav-dropdown a').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();show('procedure');});});
     window.__showPage=show;
+  })();
+
+  // subtle parallax on the contact section background
+  (function(){
+    var el=document.querySelector('[data-parallax]');
+    if(!el)return;
+    var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce)return;
+    var ticking=false;
+    function update(){
+      var r=el.parentElement.getBoundingClientRect();
+      var vh=window.innerHeight||1;
+      if(r.bottom<0||r.top>vh){ticking=false;return;}
+      var progress=(vh-r.top)/(vh+r.height); // 0 -> 1 across the viewport
+      el.style.transform='translate3d(0,'+((progress-0.5)*44).toFixed(1)+'px,0)';
+      ticking=false;
+    }
+    window.addEventListener('scroll',function(){
+      if(!ticking){ticking=true;requestAnimationFrame(update);}
+    },{passive:true});
+    window.addEventListener('resize',update);
+    update();
   })();
 
   // FAQ accordion
