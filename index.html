@@ -201,17 +201,16 @@
     background:linear-gradient(120deg,#25324a 0%,#3d4d68 45%,#5c6d8a 100%);
     background-size:cover;background-position:center 30%;
   }
+
+  .hero-video{position:absolute;inset:0;z-index:1;width:100%;height:100%;
+    object-fit:cover;opacity:0;transition:opacity 1.1s var(--ease);pointer-events:none}
+  .hero-video.ready{opacity:1}
+  @media(prefers-reduced-motion:reduce){.hero-video{display:none}}
   .hero-overlay{
-    position:absolute;inset:0;z-index:1;
+    position:absolute;inset:0;z-index:2;
     background:linear-gradient(180deg,rgba(11,20,38,.42) 0%,rgba(11,20,38,.18) 34%,rgba(11,20,38,.84) 100%);
   }
-  /*
-  <video class="hero-media" autoplay muted loop playsinline poster="hero-poster.jpg">
-    <source src="hero-broll.mp4" type="video/mp4">
-  </video>
-  <div class="hero-media" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,20,38,.25),rgba(11,20,38,.7));z-index:1"></div>
-  */
-  .hero-inner{position:relative;z-index:2;width:100%;padding-bottom:76px}
+  .hero-inner{position:relative;z-index:3;width:100%;padding-bottom:76px}
   .hero .eyebrow{color:#cdd7e8}
   .hero .eyebrow::before{background:#cdd7e8;opacity:.7}
   .hero h1{
@@ -227,7 +226,7 @@
   }
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
   .hero-tag{
-    position:absolute;top:22px;right:22px;z-index:2;
+    position:absolute;top:22px;right:22px;z-index:3;
     font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
     color:#dfe6f2;background:rgba(11,20,38,.4);border:1px solid rgba(255,255,255,.18);
     padding:7px 12px;border-radius:3px;backdrop-filter:blur(4px);
@@ -732,8 +731,14 @@
 <div id="page-home" class="page page--active">
 <!-- ============ HERO ============ -->
 <section class="hero">
-  <!-- Swap this div for the <video> markup in the CSS comment when B-roll is ready -->
-  <div class="hero-media" data-img="https://images.pexels.com/photos/7108250/pexels-photo-7108250.jpeg?auto=compress&cs=tinysrgb&w=1920" data-pos="center 30%"></div>
+  <!-- HERO B-ROLL: 6s muted loop. Swap sources for the practice's own footage when filmed.
+       The .hero-media div below stays as the poster/fallback if video fails or is blocked. -->
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto"
+         poster="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1920">
+    <source src="https://www.pexels.com/download/video/6998341/" type="video/mp4">
+    <source src="https://www.pexels.com/download/video/6998335/" type="video/mp4">
+  </video>
+  <div class="hero-media" data-img="https://images.pexels.com/photos/33812025/pexels-photo-33812025.jpeg?auto=compress&cs=tinysrgb&w=1920"></div>
   <div class="hero-overlay"></div>
   <span class="hero-tag">Sample imagery</span>
   <div class="hero-inner">
@@ -1455,6 +1460,21 @@
     document.querySelectorAll('[data-go="home"]').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();show('home');});});
     document.querySelectorAll('[data-go="procedure"], .nav-dropdown a').forEach(function(el){el.addEventListener('click',function(e){e.preventDefault();show('procedure');});});
     window.__showPage=show;
+  })();
+
+
+  // hero b-roll: fade in when playable, loop the first 6 seconds
+  (function(){
+    var v=document.getElementById('heroVideo');
+    if(!v)return;
+    var LOOP=6; // seconds
+    v.addEventListener('canplay',function(){v.classList.add('ready');});
+    v.addEventListener('timeupdate',function(){
+      if(v.currentTime>=LOOP){v.currentTime=0;}
+    });
+    v.addEventListener('error',function(){v.style.display='none';});
+    var p=v.play();
+    if(p&&p.catch)p.catch(function(){v.style.display='none';}); // autoplay blocked -> poster image
   })();
 
   // subtle parallax on the contact section background
