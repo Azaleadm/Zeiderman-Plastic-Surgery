@@ -465,29 +465,31 @@
   .consult-detail .cd-val{color:#e7ecf4}
   .consult-detail .cd-val a{color:#fff}
 
-  .form-card{background:#fff;border-radius:var(--radius);padding:38px 38px 40px}
-  .form-card .fc-head{font-family:'Fraunces',serif;font-size:22px;color:var(--navy);margin-bottom:24px}
+  .form-card{background:#0d1a30;border:1px solid rgba(255,255,255,.10);border-radius:var(--radius);padding:38px 38px 40px}
+  .form-card .fc-head{font-family:'Fraunces',serif;font-size:22px;color:#fff;margin-bottom:24px}
   .field{margin-bottom:18px}
-  .field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--navy-soft);font-weight:500;margin-bottom:7px}
+  .field label{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8fa0bd;font-weight:500;margin-bottom:7px}
   .field input,.field select,.field textarea{
-    width:100%;font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);
-    background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);
+    width:100%;font-family:'Inter',sans-serif;font-size:15px;color:#fff;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:var(--radius);
     padding:13px 14px;transition:border-color .25s,background .25s;
   }
+  .field select option{background:#0d1a30;color:#fff}
+  .field input::placeholder,.field textarea::placeholder{color:#7d8daa}
   .field textarea{min-height:104px;resize:vertical}
   .field input:focus,.field select:focus,.field textarea:focus{
-    outline:none;border-color:var(--navy-soft);background:#fff;
+    outline:none;border-color:#cdd7e8;background:rgba(255,255,255,.09);
   }
   .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
   .form-card .btn{width:100%;margin-top:6px}
-  .form-note{font-size:12px;color:var(--muted);margin-top:14px;text-align:center;line-height:1.5}
+  .form-note{font-size:12px;color:#8fa0bd;margin-top:14px;text-align:center;line-height:1.5}
   .form-success{
     display:none;text-align:center;padding:44px 20px;
   }
   .form-success.show{display:block}
-  .form-success .fs-ico{width:52px;height:52px;margin:0 auto 18px;color:var(--navy)}
-  .form-success h3{font-size:24px;margin-bottom:10px}
-  .form-success p{color:var(--muted);font-size:15px}
+  .form-success .fs-ico{width:52px;height:52px;margin:0 auto 18px;color:#cdd7e8}
+  .form-success h3{font-size:24px;margin-bottom:10px;color:#fff}
+  .form-success p{color:#aebbd1;font-size:15px}
   @media(max-width:900px){
     .consult-grid{grid-template-columns:1fr;gap:40px}
     .consult-copy h2{max-width:none}
@@ -1046,7 +1048,7 @@
           <label for="f-message">How can we help?</label>
           <textarea id="f-message" name="message" placeholder="Lorem ipsum dolor sit amet..."></textarea>
         </div>
-        <button type="submit" class="btn btn-solid">Request Consultation</button>
+        <button type="submit" class="btn btn-solid-light">Request Consultation</button>
         <p class="form-note">By submitting, you agree to be contacted about your consultation. We respect your privacy and never share your information.</p>
       </form>
 
